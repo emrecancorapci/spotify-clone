@@ -1,6 +1,7 @@
 import { PauseIcon, PlayIcon, Repeat1Icon, RepeatIcon, ShuffleIcon, SkipBackIcon, SkipForwardIcon } from 'lucide-react';
 import { useState } from 'react';
 import ControlButton from './control-button';
+import { Slider } from '@/components/ui/slider';
 
 const onPrevious = () => {
   console.log('Previous Song');
@@ -12,54 +13,70 @@ const onNext = () => {
 export default function SongControl(): JSX.Element {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [isShuffle, setIsShuffle] = useState<boolean>(false);
-  const [isRepeat, setIsRepeat] = useState<false | 'one' | 'all'>(false);
+  const [isRepeat, setIsRepeat] = useState<'none' | 'one' | 'all'>('none');
 
-  const iconProperty = { strokeWidth: 2.5, size: 26 };
+  const iconProperty = { strokeWidth: 2.5, size: 20 };
 
   const onPlay = () => setIsPlaying((state) => !state);
   const onShuffle = () => setIsShuffle((state) => !state);
   const onRepeat = () =>
     setIsRepeat((state) => {
-      if (!state) return 'all';
-      else if (state === 'all') return 'one';
-      else if (state === 'one') return false;
-      else return false;
+      switch (state) {
+        case 'none': {
+          return 'all';
+        }
+        case 'all': {
+          return 'one';
+        }
+        case 'one': {
+          return 'none';
+        }
+        // No default
+      }
     });
+
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex w-full max-w-[35vw] flex-col items-center gap-1">
       <div className="flex flex-row justify-center gap-3">
-        <ControlButton onClick={onShuffle}>
-          {isShuffle ? (
-            <ShuffleIcon className="h-5 w-5 text-green-500" {...iconProperty} />
-          ) : (
-            <ShuffleIcon className="h-5 w-5 text-zinc-300" {...iconProperty} />
-          )}
+        <ControlButton
+          className={isShuffle ? 'text-green-500 hover:text-green-400' : 'text-zinc-400 hover:text-zinc-100'}
+          onClick={onShuffle}
+        >
+          {isShuffle ? <ShuffleIcon {...iconProperty} /> : <ShuffleIcon {...iconProperty} />}
         </ControlButton>
-        <ControlButton onClick={onPrevious}>
-          <SkipBackIcon className="h-5 w-5 text-zinc-300" {...iconProperty} />
+
+        <ControlButton className="text-zinc-400 hover:text-zinc-100" onClick={onPrevious}>
+          <SkipBackIcon {...iconProperty} />
         </ControlButton>
         <ControlButton
           onClick={onPlay}
-          className="bg-zinc-100 transition-transform duration-100 hover:scale-105 active:scale-95"
+          className="bg-zinc-100 text-black transition-transform duration-100 hover:scale-105 active:scale-95"
         >
-          {isPlaying ? (
-            <PlayIcon className="relative left-[1px] h-5 w-5 text-black" {...iconProperty} />
-          ) : (
-            <PauseIcon className="h-5 w-5 text-black" {...iconProperty} />
-          )}
+          {isPlaying ? <PlayIcon className="relative left-[1px]" {...iconProperty} /> : <PauseIcon {...iconProperty} />}
         </ControlButton>
-        <ControlButton onClick={onNext}>
-          <SkipForwardIcon className="h-5 w-5 text-zinc-300" {...iconProperty} />
+
+        <ControlButton className="text-zinc-400 hover:text-zinc-100" onClick={onNext}>
+          <SkipForwardIcon {...iconProperty} />
         </ControlButton>
-        <ControlButton onClick={onRepeat}>
+
+        <ControlButton
+          className={isRepeat === 'none' ? 'text-zinc-400 hover:text-zinc-100' : 'text-green-500 hover:text-green-400'}
+          onClick={onRepeat}
+        >
           {isRepeat === 'one' ? (
-            <Repeat1Icon className="h-5 w-5 text-green-500" {...iconProperty} />
+            <Repeat1Icon {...iconProperty} />
           ) : isRepeat === 'all' ? (
-            <RepeatIcon className="h-5 w-5 text-green-500" {...iconProperty} />
+            <RepeatIcon {...iconProperty} />
           ) : (
-            <RepeatIcon className="h-5 w-5 text-zinc-300" {...iconProperty} />
+            <RepeatIcon {...iconProperty} />
           )}
         </ControlButton>
+      </div>
+
+      <div className="flex w-full flex-row items-center gap-2 text-zinc-200">
+        <p className="text-xs text-zinc-400">0:00</p>
+        <Slider defaultValue={[1]} inverted={true} min={0} max={100} step={1} />
+        <p className="text-xs text-zinc-400">6:53</p>
       </div>
     </div>
   );
