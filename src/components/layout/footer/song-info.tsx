@@ -14,11 +14,11 @@ export default function SongInfo() {
 
   const iconProperty = { strokeWidth: 2.5, size: 26 };
   return (
-    <div className="flex flex-row items-center gap-2">
+    <div className="flex min-w-max flex-row items-center gap-2">
       <img src={song.albumCover} alt={`${song.album}'s cover`} className="h-14 w-14 rounded-md" />
       <div className="flex flex-col justify-center px-2">
         <h3 className="text-sm font-normal text-white">{song.name}</h3>
-        <h4 className="text-xs font-light text-zinc-400">{song.artist}</h4>
+        <h4 className="text-xs font-normal text-zinc-400">{song.artist}</h4>
       </div>
       <div>
         <HeartIcon
