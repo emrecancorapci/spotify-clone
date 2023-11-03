@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Layout from './layout.tsx';
 import './global.css';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router.tsx';
 
 ReactDOM.createRoot(document.querySelector('#root')!).render(
   <React.StrictMode>
-    <Layout />
+    <RouterProvider router={router} />
   </React.StrictMode>,
 );
