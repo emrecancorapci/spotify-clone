@@ -6,7 +6,7 @@ export default function Layout() {
   return (
     <div className="flex h-screen w-full flex-col gap-2 bg-black p-2">
       <div className="flex flex-1 gap-2 self-stretch">
-        <div className="flex min-w-[72px] items-start justify-center bg-red-400">
+        <div className="flex min-w-[72px] items-start justify-center">
           <Sidebar />
         </div>
         <main className="w-full bg-zinc-500">
