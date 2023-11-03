@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Sidebar from '@/components/layout/sidebar';
-import NowPlayingBar from './components/layout/now-playing-bar';
+import Footer from './components/layout/footer';
 
 export default function Layout() {
   return (
@@ -14,7 +14,7 @@ export default function Layout() {
         </main>
       </div>
       <div className="max-h-[72px] shrink-0 self-stretch">
-        <NowPlayingBar />
+        <Footer />
       </div>
     </div>
   );
