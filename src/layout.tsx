@@ -13,7 +13,7 @@ export default function Layout() {
           <Outlet />
         </main>
       </div>
-      <div className="min-h-[72px] shrink-0 self-stretch bg-green-300">
+      <div className="max-h-[72px] shrink-0 self-stretch">
         <NowPlayingBar />
       </div>
     </div>

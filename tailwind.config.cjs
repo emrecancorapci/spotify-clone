@@ -6,7 +6,17 @@ module.exports = {
     './src/**/*.{ts,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        wiggle: {
+          "0%, 50%, 100%": { transform: "rotate(-7deg)" },
+          "25%, 75%": { transform: "rotate(7deg)" }
+        }
+      },
+      animation: {
+        wiggle: "wiggle 300ms ease-in-out"
+      }
+    },
   },
   plugins: [],
 }
