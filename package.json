@@ -1,5 +1,9 @@
 {
-  "name": "tauri-react-typescript-tailwind",
+  "name": "tauri-spotify-clone",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emrecancorapci/tauri-spotify-clone.git"
+  },
   "private": true,
   "version": "0.0.0",
   "type": "module",
