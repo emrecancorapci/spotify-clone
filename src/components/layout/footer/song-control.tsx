@@ -38,16 +38,14 @@ export default function SongControl(): JSX.Element {
   return (
     <div className="flex w-full max-w-[35vw] flex-col items-center gap-1">
       <div className="flex flex-row justify-center gap-3">
-        <ControlButton
-          className={isShuffle ? 'text-green-500 hover:text-green-400' : 'text-zinc-400 hover:text-zinc-100'}
-          onClick={onShuffle}
-        >
+        <ControlButton type="switch" switchControl={isShuffle} onClick={onShuffle}>
           {isShuffle ? <ShuffleIcon {...iconProperty} /> : <ShuffleIcon {...iconProperty} />}
         </ControlButton>
 
-        <ControlButton className="text-zinc-400 hover:text-zinc-100" onClick={onPrevious}>
+        <ControlButton type="button" onClick={onPrevious}>
           <SkipBackIcon {...iconProperty} />
         </ControlButton>
+
         <ControlButton
           onClick={onPlay}
           className="bg-zinc-100 text-black transition-transform duration-100 hover:scale-105 active:scale-95"
@@ -55,14 +53,11 @@ export default function SongControl(): JSX.Element {
           {isPlaying ? <PlayIcon className="relative left-[1px]" {...iconProperty} /> : <PauseIcon {...iconProperty} />}
         </ControlButton>
 
-        <ControlButton className="text-zinc-400 hover:text-zinc-100" onClick={onNext}>
+        <ControlButton type="button" onClick={onNext}>
           <SkipForwardIcon {...iconProperty} />
         </ControlButton>
 
-        <ControlButton
-          className={isRepeat === 'none' ? 'text-zinc-400 hover:text-zinc-100' : 'text-green-500 hover:text-green-400'}
-          onClick={onRepeat}
-        >
+        <ControlButton type="switch" switchControl={isRepeat === 'one' || isRepeat === 'all'} onClick={onRepeat}>
           {isRepeat === 'one' ? (
             <Repeat1Icon {...iconProperty} />
           ) : isRepeat === 'all' ? (
