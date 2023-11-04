@@ -6,7 +6,7 @@ const openPlayingView = () => {
   console.log('Open Playing View');
 };
 
-export default function Others(): JSX.Element {
+export default function OtherControls(): JSX.Element {
   const iconProperty = { strokeWidth: 2.5, size: 18 };
 
   return (
