@@ -1,18 +1,35 @@
-export default function ControlButton({
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import { memo } from 'react';
+
+function ControlButtonComponent({
   type,
   switchControl = false,
+  tooltipText,
   children,
   className,
   onClick,
 }: {
   type?: 'button' | 'switch';
   switchControl?: boolean;
+  tooltipText?: string;
   children: React.ReactNode | undefined;
   className?: string;
   onClick: () => void;
 }) {
+  const TooltipWrapper = ({ children }: { children: React.ReactNode }) =>
+    tooltipText !== undefined && tooltipText.length > 0 ? (
+      <Tooltip>
+        <TooltipTrigger asChild>{children}</TooltipTrigger>
+        <TooltipContent sideOffset={8} className="rounded border-0 bg-zinc-800 p-1 px-2 text-white">
+          {tooltipText}
+        </TooltipContent>
+      </Tooltip>
+    ) : (
+      <>{children}</>
+    );
+
   return (
-    <>
+    <TooltipWrapper>
       {type === 'button' ? (
         <button
           onClick={onClick}
@@ -36,6 +53,11 @@ export default function ControlButton({
           {children}
         </button>
       )}
-    </>
+    </TooltipWrapper>
   );
 }
+
+const ControlButton = memo(ControlButtonComponent);
+ControlButton.displayName = 'ControlButton';
+
+export default ControlButton;

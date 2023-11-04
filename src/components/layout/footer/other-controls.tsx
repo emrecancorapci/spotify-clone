@@ -11,20 +11,20 @@ export default function OtherControls(): JSX.Element {
 
   return (
     <div className="flex w-auto flex-row items-center">
-      <ControlButton type="button" onClick={openPlayingView}>
+      <ControlButton tooltipText="Now Playing View" type="button" onClick={openPlayingView}>
         <PlaySquareIcon {...iconProperty} />
       </ControlButton>
-      <ControlButton type="button" onClick={openPlayingView}>
+      <ControlButton tooltipText="Lyrics" type="button" onClick={openPlayingView}>
         <Mic2Icon {...iconProperty} />
       </ControlButton>
-      <ControlButton type="button" onClick={openPlayingView}>
+      <ControlButton tooltipText="Queue" type="button" onClick={openPlayingView}>
         <ListMusicIcon {...iconProperty} />
       </ControlButton>
       <ControlButton type="button" onClick={openPlayingView}>
         <MonitorSpeaker {...iconProperty} />
       </ControlButton>
       <div className="group flex w-32 flex-row items-center">
-        <ControlButton className="text-zinc-400 group-hover:text-zinc-100" onClick={openPlayingView}>
+        <ControlButton tooltipText="Mute" className="text-zinc-400 group-hover:text-zinc-100" onClick={openPlayingView}>
           <Volume2Icon {...iconProperty} />
         </ControlButton>
         <Slider className="col-span-3" defaultValue={[1]} inverted={true} min={0} max={100} step={1} />
