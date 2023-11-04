@@ -14,7 +14,7 @@ export default function SongInfo() {
 
   const iconProperty = { strokeWidth: 2.5, size: 26 };
   return (
-    <div className="flex min-w-max flex-row items-center gap-2">
+    <div className="flex min-w-[30vw] flex-row items-center gap-2 lg:min-w-[15vw]">
       <img src={song.albumCover} alt={`${song.album}'s cover`} className="h-14 w-14 rounded-md" />
       <div className="flex flex-col justify-center px-2">
         <h3 className="text-sm font-normal text-white">{song.name}</h3>

@@ -29,6 +29,7 @@ export default function Sidebar(): JSX.Element {
   // );
 
   const iconProperties = { strokeWidth: 2.5, size: 26 };
+
   return (
     <div className="flex w-full flex-col gap-2">
       <SidebarCard>
