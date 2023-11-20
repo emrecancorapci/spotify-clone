@@ -9,7 +9,7 @@ export default function Layout() {
         <div className="flex min-w-[72px] items-start justify-center">
           <Sidebar />
         </div>
-        <main className="w-full bg-zinc-500">
+        <main className="flex w-full flex-1 overflow-hidden text-clip rounded-lg">
           <Outlet />
         </main>
       </div>
