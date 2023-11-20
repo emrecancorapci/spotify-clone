@@ -2,6 +2,7 @@ import { createSlice, type PayloadAction, type AnyAction } from '@reduxjs/toolki
 
 export interface PlayerControllerState {
   volume: number;
+  isMuted: boolean;
   isPlaying: boolean;
   isShuffle: boolean;
   isRepeat: 'none' | 'one' | 'all';
@@ -9,6 +10,7 @@ export interface PlayerControllerState {
 
 const initialState: PlayerControllerState = {
   volume: 0.5,
+  isMuted: false,
   isPlaying: false,
   isShuffle: false,
   isRepeat: 'none',
@@ -26,6 +28,9 @@ export const playerControllerSlice = createSlice({
       if (isActionWithNumberPayload(action)) {
         state.volume = action.payload;
       }
+    },
+    toggleMute: (state) => {
+      state.isMuted = !state.isMuted;
     },
     togglePlay: (state) => {
       state.isPlaying = !state.isPlaying;
@@ -53,6 +58,6 @@ export const playerControllerSlice = createSlice({
   },
 });
 
-export const { setVolume, togglePlay, toggleShuffle, toggleRepeat } = playerControllerSlice.actions;
+export const { setVolume, togglePlay, toggleMute, toggleShuffle, toggleRepeat } = playerControllerSlice.actions;
 
 export default playerControllerSlice.reducer;
