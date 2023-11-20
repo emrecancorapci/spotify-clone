@@ -1,12 +1,12 @@
 import OtherControls from './footer/other-controls';
-import SongControl from './footer/song-control';
-import SongInfo from './footer/song-info';
+import PlayerController from './footer/player-controller';
+import TrackDisplayer from './footer/track-displayer';
 
 export default function Footer(): JSX.Element {
   return (
     <div className="flex flex-row items-center justify-between p-2">
-      <SongInfo />
-      <SongControl />
+      <TrackDisplayer />
+      <PlayerController />
       <OtherControls />
     </div>
   );

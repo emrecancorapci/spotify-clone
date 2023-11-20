@@ -11,7 +11,7 @@ const onNext = () => {
   console.log('Next Song');
 };
 
-export default function SongControl(): JSX.Element {
+export default function PlayerController(): JSX.Element {
   const [isPlaying, isShuffle, isRepeat] = useTypedSelector((state) => [
     state.playerController.isPlaying,
     state.playerController.isShuffle,

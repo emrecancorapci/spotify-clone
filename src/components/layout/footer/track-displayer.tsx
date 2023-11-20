@@ -9,7 +9,7 @@ const song = {
   albumCover: 'https://picsum.photos/200',
 };
 
-export default function SongInfo() {
+export default function TrackDisplayer() {
   const [isLiked, setIsLiked] = useState<boolean>(false);
   const [effects, setEffects] = useState<boolean>(false);
 
