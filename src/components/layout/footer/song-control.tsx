@@ -1,7 +1,8 @@
 import { PauseIcon, PlayIcon, Repeat1Icon, RepeatIcon, ShuffleIcon, SkipBackIcon, SkipForwardIcon } from 'lucide-react';
-import { useState } from 'react';
 import ControlButton from './control-button';
 import { Slider } from '@/components/ui/slider';
+import { useAppDispatch, useTypedSelector } from '@/store';
+import { togglePlay, toggleRepeat, toggleShuffle } from '@/features/player-controller/player-controller-slice';
 
 const onPrevious = () => {
   console.log('Previous Song');
@@ -11,29 +12,18 @@ const onNext = () => {
 };
 
 export default function SongControl(): JSX.Element {
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [isShuffle, setIsShuffle] = useState<boolean>(false);
-  const [isRepeat, setIsRepeat] = useState<'none' | 'one' | 'all'>('none');
+  const [isPlaying, isShuffle, isRepeat] = useTypedSelector((state) => [
+    state.playerController.isPlaying,
+    state.playerController.isShuffle,
+    state.playerController.isRepeat,
+  ]);
+  const dispatch = useAppDispatch();
 
   const iconProperty = { strokeWidth: 2.5, size: 20 };
 
-  const onPlay = () => setIsPlaying((state) => !state);
-  const onShuffle = () => setIsShuffle((state) => !state);
-  const onRepeat = () =>
-    setIsRepeat((state) => {
-      switch (state) {
-        case 'none': {
-          return 'all';
-        }
-        case 'all': {
-          return 'one';
-        }
-        case 'one': {
-          return 'none';
-        }
-        // No default
-      }
-    });
+  const onPlay = () => dispatch(togglePlay());
+  const onShuffle = () => dispatch(toggleShuffle());
+  const onRepeat = () => dispatch(toggleRepeat());
 
   return (
     <div className="flex w-full max-w-[35vw] flex-col items-center gap-1">
