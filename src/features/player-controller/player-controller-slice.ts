@@ -26,6 +26,9 @@ export const playerControllerSlice = createSlice({
   reducers: {
     setVolume: (state, action) => {
       if (isActionWithNumberPayload(action)) {
+        if (state.isMuted) {
+          state.isMuted = false;
+        }
         state.volume = action.payload;
       }
     },
