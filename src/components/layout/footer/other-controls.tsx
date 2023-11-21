@@ -13,10 +13,7 @@ import { Slider } from '@/components/ui/slider';
 import { useAppDispatch, useTypedSelector } from '@/store';
 import { setVolume, toggleMute } from '@/features/player-controller/player-controller-slice';
 import { useState } from 'react';
-
-const openPlayingView = () => {
-  console.log('Open Playing View');
-};
+import { toggleIsNowPlaying } from '@/features/app-controller/app-controller-slice';
 
 export default function OtherControls(): JSX.Element {
   const [volume, isMuted] = useTypedSelector((state) => [
@@ -38,9 +35,14 @@ export default function OtherControls(): JSX.Element {
 
     dispatch(toggleMute());
   };
+
   const onVolumeChange = (value: number[]) => {
     setSliderValue([value[0]]);
     dispatch(setVolume(value[0] / 100));
+  };
+
+  const openPlayingView = () => {
+    dispatch(toggleIsNowPlaying());
   };
 
   return (
