@@ -1,4 +1,4 @@
-import { createSlice, type PayloadAction, type AnyAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 export interface AppControllerState {
   isNowPlayingVisible: boolean;

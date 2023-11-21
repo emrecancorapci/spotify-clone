@@ -10,16 +10,13 @@ import {
 } from 'lucide-react';
 import ControlButton from './control-button';
 import { Slider } from '@/components/ui/slider';
-import { useAppDispatch, useTypedSelector } from '@/store';
+import { selectOtherControlsStates, useAppDispatch, useTypedSelector } from '@/store';
 import { setVolume, toggleMute } from '@/features/player-controller/player-controller-slice';
 import { useState } from 'react';
 import { toggleIsNowPlaying } from '@/features/app-controller/app-controller-slice';
 
 export default function OtherControls(): JSX.Element {
-  const [volume, isMuted] = useTypedSelector((state) => [
-    state.playerController.volume,
-    state.playerController.isMuted,
-  ]);
+  const { volume, isMuted } = useTypedSelector(selectOtherControlsStates);
   const dispatch = useAppDispatch();
 
   const [sliderValue, setSliderValue] = useState<number[]>([volume * 100]);

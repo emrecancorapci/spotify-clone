@@ -1,7 +1,7 @@
 import { PauseIcon, PlayIcon, Repeat1Icon, RepeatIcon, ShuffleIcon, SkipBackIcon, SkipForwardIcon } from 'lucide-react';
 import ControlButton from './control-button';
 import { Slider } from '@/components/ui/slider';
-import { useAppDispatch, useTypedSelector } from '@/store';
+import { selectPlayerControllerStates, useAppDispatch, useTypedSelector } from '@/store';
 import { togglePlay, toggleRepeat, toggleShuffle } from '@/features/player-controller/player-controller-slice';
 
 const onPrevious = () => {
@@ -12,11 +12,7 @@ const onNext = () => {
 };
 
 export default function PlayerController(): JSX.Element {
-  const [isPlaying, isShuffle, isRepeat] = useTypedSelector((state) => [
-    state.playerController.isPlaying,
-    state.playerController.isShuffle,
-    state.playerController.isRepeat,
-  ]);
+  const { isPlaying, isShuffle, isRepeat } = useTypedSelector(selectPlayerControllerStates);
   const dispatch = useAppDispatch();
 
   const iconProperty = { strokeWidth: 2.5, size: 20 };

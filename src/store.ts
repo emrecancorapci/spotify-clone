@@ -1,5 +1,5 @@
 import { type TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, createSelector } from '@reduxjs/toolkit';
 import playerControllerReducer from './features/player-controller/player-controller-slice';
 import appControllerReducer from './features/app-controller/app-controller-slice';
 
@@ -8,6 +8,23 @@ export const store = configureStore({
     playerController: playerControllerReducer,
     appController: appControllerReducer,
   },
+});
+
+const isPlaying = (state: RootState) => state.playerController.isPlaying;
+const isShuffle = (state: RootState) => state.playerController.isShuffle;
+const isRepeat = (state: RootState) => state.playerController.isRepeat;
+const volume = (state: RootState) => state.playerController.volume;
+const isMuted = (state: RootState) => state.playerController.isMuted;
+
+export const selectPlayerControllerStates = createSelector(
+  [isPlaying, isShuffle, isRepeat],
+  (isPlaying, isShuffle, isRepeat) => {
+    return { isPlaying, isRepeat, isShuffle };
+  },
+);
+
+export const selectOtherControlsStates = createSelector([volume, isMuted], (volume, isMuted) => {
+  return { volume, isMuted };
 });
 
 export type AppDispatch = typeof store.dispatch;
