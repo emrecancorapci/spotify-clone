@@ -60,7 +60,7 @@ export default function PlayerController(): JSX.Element {
 
       <div className="flex w-full flex-row items-center gap-2 text-zinc-200">
         <p className="text-xs text-zinc-400">0:00</p>
-        <Slider defaultValue={[1]} inverted={true} min={0} max={100} step={1} />
+        <Slider defaultValue={[1]} min={0} max={100} step={1} />
         <p className="text-xs text-zinc-400">6:53</p>
       </div>
     </div>

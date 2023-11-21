@@ -31,16 +31,16 @@ export default function OtherControls(): JSX.Element {
 
   const onMuteButton = () => {
     if (isMuted) {
-      setSliderValue([(1 - volume) * 100]);
+      setSliderValue([volume * 100]);
     } else {
-      setSliderValue([100]);
+      setSliderValue([0]);
     }
 
     dispatch(toggleMute());
   };
   const onVolumeChange = (value: number[]) => {
     setSliderValue([value[0]]);
-    dispatch(setVolume(1 - value[0] / 100));
+    dispatch(setVolume(value[0] / 100));
   };
 
   return (
@@ -74,7 +74,6 @@ export default function OtherControls(): JSX.Element {
           onValueChange={onVolumeChange}
           defaultValue={sliderValue}
           value={sliderValue}
-          inverted={true}
           min={0}
           max={100}
           step={1}
