@@ -67,7 +67,7 @@
     "plugin:jsx-a11y/recommended",
     "plugin:unicorn/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:security/recommended",
+    "plugin:security/recommended-legacy",
     "plugin:promise/recommended",
     "plugin:import/recommended",
     "plugin:n/recommended",
