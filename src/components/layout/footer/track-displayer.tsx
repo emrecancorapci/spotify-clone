@@ -1,8 +1,9 @@
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { HeartIcon } from 'lucide-react';
 import { useState } from 'react';
 
-const song = {
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+
+const currentSong = {
   name: 'Song Name',
   artist: 'Artist Name',
   album: 'Album Name',
@@ -16,10 +17,10 @@ export default function TrackDisplayer() {
   const iconProperty = { strokeWidth: 2.5, size: 26 };
   return (
     <div className="flex min-w-[30vw] flex-row items-center gap-2 lg:min-w-[15vw]">
-      <img src={song.albumCover} alt={`${song.album}'s cover`} className="h-14 w-14 rounded-md" />
+      <img src={currentSong.albumCover} alt={`${currentSong.album}'s cover`} className="h-14 w-14 rounded-md" />
       <div className="flex flex-col justify-center px-2">
-        <h3 className="text-sm font-normal text-white">{song.name}</h3>
-        <h4 className="text-xs font-normal text-zinc-400">{song.artist}</h4>
+        <h3 className="text-sm font-normal text-white">{currentSong.name}</h3>
+        <h4 className="text-xs font-normal text-zinc-400">{currentSong.artist}</h4>
       </div>
       <Tooltip>
         <TooltipTrigger>

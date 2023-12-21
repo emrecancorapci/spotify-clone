@@ -1,9 +1,10 @@
 import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
+
 import Layout from './layout';
 import Home from './pages/home';
-import Search from './pages/search';
-import Queue from './pages/queue';
 import Lyrics from './pages/lyrics';
+import Queue from './pages/queue';
+import Search from './pages/search';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(

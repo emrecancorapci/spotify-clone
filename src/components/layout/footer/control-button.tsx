@@ -1,5 +1,6 @@
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { memo } from 'react';
+
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 
 function ControlButtonComponent({
   type,

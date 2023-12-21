@@ -1,7 +1,8 @@
-import { type TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { configureStore, createSelector } from '@reduxjs/toolkit';
-import playerControllerReducer from './features/player-controller/player-controller-slice';
+import { type TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+
 import appControllerReducer from './features/app-controller/app-controller-slice';
+import playerControllerReducer from './features/player-controller/player-controller-slice';
 
 export const store = configureStore({
   reducer: {

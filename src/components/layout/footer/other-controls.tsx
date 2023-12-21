@@ -8,12 +8,14 @@ import {
   VolumeIcon,
   VolumeXIcon,
 } from 'lucide-react';
-import ControlButton from './control-button';
-import { Slider } from '@/components/ui/slider';
-import { selectOtherControlsStates, useAppDispatch, useTypedSelector } from '@/store';
-import { setVolume, toggleMute } from '@/features/player-controller/player-controller-slice';
 import { useState } from 'react';
+
+import { Slider } from '@/components/ui/slider';
 import { toggleIsNowPlaying } from '@/features/app-controller/app-controller-slice';
+import { setVolume, toggleMute } from '@/features/player-controller/player-controller-slice';
+import { selectOtherControlsStates, useAppDispatch, useTypedSelector } from '@/store';
+
+import ControlButton from './control-button';
 
 export default function OtherControls(): JSX.Element {
   const { volume, isMuted } = useTypedSelector(selectOtherControlsStates);

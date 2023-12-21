@@ -1,5 +1,7 @@
 import { Outlet } from 'react-router-dom';
+
 import Sidebar from '@/components/layout/sidebar';
+
 import Footer from './components/layout/footer';
 import { useTypedSelector } from './store';
 

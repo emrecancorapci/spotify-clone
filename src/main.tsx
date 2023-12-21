@@ -1,10 +1,12 @@
+import './global.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './global.css';
-import { RouterProvider } from 'react-router-dom';
-import { router } from './router.tsx';
 import { Provider as ReduxProvider } from 'react-redux';
+import { RouterProvider } from 'react-router-dom';
+
 import { TooltipProvider } from './components/ui/tooltip.tsx';
+import { router } from './router.tsx';
 import { store } from './store.ts';
 
 ReactDOM.createRoot(document.querySelector('#root')!).render(
