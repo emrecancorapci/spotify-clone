@@ -17,7 +17,7 @@ const isRepeat = (state: RootState) => state.playerController.isRepeat;
 const volume = (state: RootState) => state.playerController.volume;
 const isMuted = (state: RootState) => state.playerController.isMuted;
 
-export const selectPlayerControllerStates = createSelector(
+export const selectButtonGroupStates = createSelector(
   [isPlaying, isShuffle, isRepeat],
   (isPlaying, isShuffle, isRepeat) => {
     return { isPlaying, isRepeat, isShuffle };
