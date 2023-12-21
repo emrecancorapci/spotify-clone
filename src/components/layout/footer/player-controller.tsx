@@ -1,19 +1,25 @@
 import { useEffect, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import { Slider } from '@/components/ui/slider';
-import { selectPlayerControllerStates, useTypedSelector } from '@/store';
+import { setAudioReference } from '@/features/player-controller/player-controller-slice';
+import { useTypedSelector } from '@/store';
 
 import ButtonGroup from './button-group';
+import TimeDisplay from './time-display';
 
 export default function PlayerController(): JSX.Element {
-  const { isPlaying } = useTypedSelector(selectPlayerControllerStates);
+  const dispatch = useDispatch();
   const [currentTime, setCurrentTime] = useState<number>(0);
+  const isPlaying = useTypedSelector((state) => state.playerController.isPlaying);
 
-  const iconProperty = { strokeWidth: 2.5, size: 20 };
+  const audioReference = useRef<HTMLAudioElement | null>(null);
+  dispatch(setAudioReference(audioReference));
 
-  const onPlay = () => dispatch(togglePlay());
-  const onShuffle = () => dispatch(toggleShuffle());
-  const onRepeat = () => dispatch(toggleRepeat());
+  const audio = {
+    duration: audioReference.current?.duration ?? 167,
+    currentTime: audioReference.current?.currentTime ?? 0,
+  };
 
   useEffect(() => {
     if (isPlaying) {
@@ -34,12 +40,21 @@ export default function PlayerController(): JSX.Element {
       <ButtonGroup audioReference={audioReference} />
 
       <div className="flex w-full flex-row items-center gap-2 text-zinc-200">
-        <p className="text-xs text-zinc-400">{`${Math.floor(currentTime / 60)}:${String(currentTime % 60).padStart(
-          2,
-          '0',
-        )}`}</p>
-        <Slider defaultValue={[1]} min={0} value={[currentTime]} onValueChange={onSliderChange} max={420} step={1} />
-        <p className="text-xs text-zinc-400">7:00</p>
+        <TimeDisplay seconds={audio.currentTime} />
+
+        <audio ref={audioReference}>
+          <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" />
+        </audio>
+        <Slider
+          defaultValue={[1]}
+          min={0}
+          value={[audio.currentTime]}
+          onValueChange={onSliderChange}
+          max={420}
+          step={1}
+        />
+
+        <TimeDisplay seconds={audio.duration} />
       </div>
     </div>
   );

@@ -1,6 +1,8 @@
-import { createSlice, type PayloadAction, type AnyAction } from '@reduxjs/toolkit';
+import { createSlice, type PayloadAction, type UnknownAction } from '@reduxjs/toolkit';
+import { type RefObject } from 'react';
 
 export interface PlayerControllerState {
+  audioReference: RefObject<HTMLAudioElement> | undefined;
   volume: number;
   isMuted: boolean;
   isPlaying: boolean;
@@ -9,6 +11,7 @@ export interface PlayerControllerState {
 }
 
 const initialState: PlayerControllerState = {
+  audioReference: undefined,
   volume: 0.5,
   isMuted: false,
   isPlaying: false,
@@ -16,7 +19,7 @@ const initialState: PlayerControllerState = {
   isRepeat: 'none',
 };
 
-function isActionWithNumberPayload(action: AnyAction): action is PayloadAction<number> {
+function isActionWithNumberPayload(action: UnknownAction): action is PayloadAction<number> {
   return typeof action.payload === 'number';
 }
 
@@ -24,6 +27,10 @@ export const playerControllerSlice = createSlice({
   name: 'playerController',
   initialState,
   reducers: {
+    setAudioReference: (state, action) => {
+      // Fix type
+      state.audioReference = action.payload;
+    },
     setVolume: (state, action) => {
       if (isActionWithNumberPayload(action)) {
         if (state.isMuted) {
@@ -61,6 +68,7 @@ export const playerControllerSlice = createSlice({
   },
 });
 
-export const { setVolume, togglePlay, toggleMute, toggleShuffle, toggleRepeat } = playerControllerSlice.actions;
+export const { setAudioReference, setVolume, togglePlay, toggleMute, toggleShuffle, toggleRepeat } =
+  playerControllerSlice.actions;
 
 export default playerControllerSlice.reducer;
