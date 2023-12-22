@@ -8,7 +8,6 @@ import {
   VolumeIcon,
   VolumeXIcon,
 } from 'lucide-react';
-import { useState } from 'react';
 
 import { Slider } from '@/components/ui/slider';
 import { toggleIsNowPlaying } from '@/features/app-controller/app-controller-slice';
@@ -21,22 +20,11 @@ export default function OtherControls(): JSX.Element {
   const { volume, isMuted } = useTypedSelector(selectOtherControlsStates);
   const dispatch = useAppDispatch();
 
-  const [sliderValue, setSliderValue] = useState<number[]>([volume * 100]);
-
   const iconProperty = { strokeWidth: 2.5, size: 18 };
 
-  const onMuteButton = () => {
-    if (isMuted) {
-      setSliderValue([volume * 100]);
-    } else {
-      setSliderValue([0]);
-    }
-
-    dispatch(toggleMute());
-  };
+  const onMuteButton = () => dispatch(toggleMute());
 
   const onVolumeChange = (value: number[]) => {
-    setSliderValue([value[0]]);
     dispatch(setVolume(value[0] / 100));
   };
 
@@ -73,8 +61,8 @@ export default function OtherControls(): JSX.Element {
         <Slider
           className="col-span-3"
           onValueChange={onVolumeChange}
-          defaultValue={sliderValue}
-          value={sliderValue}
+          defaultValue={[volume * 100]}
+          value={[volume * 100]}
           min={0}
           max={100}
           step={1}

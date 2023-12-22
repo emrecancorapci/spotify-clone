@@ -1,18 +1,16 @@
 import { PauseIcon, PlayIcon, Repeat1Icon, RepeatIcon, ShuffleIcon, SkipBackIcon, SkipForwardIcon } from 'lucide-react';
 
-import { togglePlay, toggleRepeat, toggleShuffle } from '@/features/player-controller/player-controller-slice';
+import {
+  setAudioSource,
+  togglePlay,
+  toggleRepeat,
+  toggleShuffle,
+} from '@/features/player-controller/player-controller-slice';
 import { selectButtonGroupStates, useAppDispatch, useTypedSelector } from '@/store';
 
 import ControlButton from './control-button';
 
-const onPrevious = () => {
-  console.log('Previous Song');
-};
-const onNext = () => {
-  console.log('Next Song');
-};
-
-export default function ButtonGroup({ audioReference }: { audioReference: React.RefObject<HTMLAudioElement> }) {
+export default function ButtonGroup(): JSX.Element {
   const { isPlaying, isShuffle, isRepeat } = useTypedSelector(selectButtonGroupStates);
   const dispatch = useAppDispatch();
 
@@ -21,6 +19,8 @@ export default function ButtonGroup({ audioReference }: { audioReference: React.
   const onPlay = () => dispatch(togglePlay());
   const onShuffle = () => dispatch(toggleShuffle());
   const onRepeat = () => dispatch(toggleRepeat());
+  const onPrevious = () => dispatch(setAudioSource('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3'));
+  const onNext = () => dispatch(setAudioSource('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3'));
 
   return (
     <div className="flex flex-row justify-center gap-3">

@@ -31,6 +31,11 @@ export const selectButtonGroupStates = createSelector(
 export const selectOtherControlsStates = createSelector([volume, isMuted], (volume, isMuted) => {
   return { volume, isMuted };
 });
+
+export const selectProgressBarStates = createSelector([duration, currentTime], (duration, currentTime) => {
+  return { duration, currentTime };
+});
+
 export const selectAudioPlayerStates = createSelector(
   [audioSource, volume, isMuted, isPlaying],
   (audioSource, volume, isMuted, isPlaying) => {
