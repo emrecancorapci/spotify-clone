@@ -1,36 +1,26 @@
 import { memo } from 'react';
 
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import TooltipWrapper from '@/components/ui/tooltip-wrapper';
 
-function ControlButtonComponent({
-  type,
-  switchControl = false,
-  tooltipText,
-  children,
-  className,
-  onClick,
-}: {
+interface Properties {
   type?: 'button' | 'switch';
   switchControl?: boolean;
   tooltipText?: string;
   children: React.ReactNode | undefined;
   className?: string;
   onClick: () => void;
-}) {
-  const TooltipWrapper = ({ children }: { children: React.ReactNode }) =>
-    tooltipText !== undefined && tooltipText.length > 0 ? (
-      <Tooltip>
-        <TooltipTrigger asChild>{children}</TooltipTrigger>
-        <TooltipContent sideOffset={8} className="rounded border-0 bg-zinc-800 p-1 px-2 text-white">
-          {tooltipText}
-        </TooltipContent>
-      </Tooltip>
-    ) : (
-      <>{children}</>
-    );
+}
 
+const ControlButton = memo(function ControlButtonComponent({
+  type,
+  switchControl = false,
+  tooltipText,
+  children,
+  className,
+  onClick,
+}: Properties) {
   return (
-    <TooltipWrapper>
+    <TooltipWrapper tooltipText={tooltipText}>
       {type === 'button' ? (
         <button
           onClick={onClick}
@@ -54,9 +44,8 @@ function ControlButtonComponent({
       )}
     </TooltipWrapper>
   );
-}
+});
 
-const ControlButton = memo(ControlButtonComponent);
 ControlButton.displayName = 'ControlButton';
 
 export default ControlButton;

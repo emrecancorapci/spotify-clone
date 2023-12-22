@@ -8,7 +8,7 @@ import {
 } from '@/features/player-controller/player-controller-slice';
 import { selectButtonGroupStates, useAppDispatch, useTypedSelector } from '@/store';
 
-import ControlButton from './control-button';
+import ControlButton from '../control-button';
 
 export default function ButtonGroup(): JSX.Element {
   const { isPlaying, isShuffle, isRepeat } = useTypedSelector(selectButtonGroupStates);

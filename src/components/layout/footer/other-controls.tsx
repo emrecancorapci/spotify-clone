@@ -1,36 +1,19 @@
-import {
-  ListMusicIcon,
-  Mic2Icon,
-  MonitorSpeaker,
-  PlaySquareIcon,
-  Volume1Icon,
-  Volume2Icon,
-  VolumeIcon,
-  VolumeXIcon,
-} from 'lucide-react';
+import { ListMusicIcon, Mic2Icon, MonitorSpeaker, PlaySquareIcon } from 'lucide-react';
 
-import { Slider } from '@/components/ui/slider';
 import { toggleIsNowPlaying } from '@/features/app-controller/app-controller-slice';
-import { setVolume, toggleMute } from '@/features/player-controller/player-controller-slice';
-import { selectOtherControlsStates, useAppDispatch, useTypedSelector } from '@/store';
+import { useAppDispatch } from '@/store';
 
 import ControlButton from './control-button';
+import VolumeController from './volume-controller';
 
 export default function OtherControls(): JSX.Element {
-  const { volume, isMuted } = useTypedSelector(selectOtherControlsStates);
   const dispatch = useAppDispatch();
-
-  const iconProperty = { strokeWidth: 2.5, size: 18 };
-
-  const onMuteButton = () => dispatch(toggleMute());
-
-  const onVolumeChange = (value: number[]) => {
-    dispatch(setVolume(value[0] / 100));
-  };
 
   const openPlayingView = () => {
     dispatch(toggleIsNowPlaying());
   };
+
+  const iconProperty = { strokeWidth: 2.5, size: 18 };
 
   return (
     <div className="flex w-auto flex-row items-center">
@@ -46,28 +29,7 @@ export default function OtherControls(): JSX.Element {
       <ControlButton type="button" onClick={openPlayingView}>
         <MonitorSpeaker {...iconProperty} />
       </ControlButton>
-      <div className="group flex w-32 flex-row items-center">
-        <ControlButton tooltipText="Mute" className="text-zinc-400 group-hover:text-zinc-100" onClick={onMuteButton}>
-          {isMuted || volume === 0 ? (
-            <VolumeXIcon {...iconProperty} />
-          ) : volume > 0 && volume < 0.3 ? (
-            <VolumeIcon {...iconProperty} />
-          ) : volume > 0.3 && volume < 0.6 ? (
-            <Volume1Icon {...iconProperty} />
-          ) : (
-            <Volume2Icon {...iconProperty} />
-          )}
-        </ControlButton>
-        <Slider
-          className="col-span-3"
-          onValueChange={onVolumeChange}
-          defaultValue={[volume * 100]}
-          value={[volume * 100]}
-          min={0}
-          max={100}
-          step={1}
-        />
-      </div>
+      <VolumeController />
     </div>
   );
 }

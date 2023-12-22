@@ -4,8 +4,8 @@ import { Slider } from '@/components/ui/slider';
 import { setCurrentTime } from '@/features/player-controller/player-controller-slice';
 import { selectProgressBarStates, useTypedSelector } from '@/store';
 
-import ButtonGroup from './button-group';
-import TimeDisplay from './time-display';
+import ButtonGroup from './player-controller/button-group';
+import TimeDisplay from './player-controller/time-display';
 
 export default function PlayerController(): JSX.Element {
   const { currentTime, duration } = useTypedSelector(selectProgressBarStates);
