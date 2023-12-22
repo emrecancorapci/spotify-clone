@@ -21,8 +21,8 @@ dependencies:
     specifier: ^2.0.0
     version: 2.0.0
   lucide-react:
-    specifier: ^0.299.0
-    version: 0.299.0(react@18.2.0)
+    specifier: ^0.300.0
+    version: 0.300.0(react@18.2.0)
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -33,11 +33,11 @@ dependencies:
     specifier: ^9.0.4
     version: 9.0.4(@types/react@18.2.45)(react@18.2.0)(redux@5.0.0)
   react-router-dom:
-    specifier: ^6.21.0
-    version: 6.21.0(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^6.21.1
+    version: 6.21.1(react-dom@18.2.0)(react@18.2.0)
   tailwind-merge:
-    specifier: ^2.1.0
-    version: 2.1.0
+    specifier: ^2.2.0
+    version: 2.2.0
   tailwindcss-animate:
     specifier: ^1.0.7
     version: 1.0.7(tailwindcss@3.4.0)
@@ -92,8 +92,8 @@ devDependencies:
     specifier: ^16.5.0
     version: 16.5.0(eslint@8.56.0)
   eslint-plugin-prettier:
-    specifier: ^5.1.0
-    version: 5.1.0(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1)
+    specifier: ^5.1.1
+    version: 5.1.1(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1)
   eslint-plugin-promise:
     specifier: ^6.1.1
     version: 6.1.1(eslint@8.56.0)
@@ -758,13 +758,13 @@ packages:
   /@radix-ui/number@1.0.1:
     resolution: {integrity: sha512-T5gIdVO2mmPW3NNhjNgEP3cqMXjXL9UbO0BzWcXfvdBs+BohbQxvd/K5hSVKmn9/lbTdsQVKbUcP5WLCwvUbBg==}
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.23.6
     dev: false
 
   /@radix-ui/primitive@1.0.1:
     resolution: {integrity: sha512-yQ8oGX2GVsEYMWGxcovu1uGWPCxV5BFfeeYxqPmuAzUyLT9qmaMXSAhXpb0WrspIeqYzdJpkh2vHModJPgRIaw==}
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.23.6
     dev: false
 
   /@radix-ui/react-arrow@1.0.3(@types/react-dom@18.2.18)(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0):
@@ -801,7 +801,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.23.6
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.45)(react@18.2.0)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.45)(react@18.2.0)
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.2.18)(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)
@@ -821,7 +821,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.23.6
       '@types/react': 18.2.45
       react: 18.2.0
     dev: false
@@ -835,7 +835,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.23.6
       '@types/react': 18.2.45
       react: 18.2.0
     dev: false
@@ -849,7 +849,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.23.6
       '@types/react': 18.2.45
       react: 18.2.0
     dev: false
@@ -867,7 +867,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.23.6
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.45)(react@18.2.0)
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.2.18)(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)
@@ -888,7 +888,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.23.6
       '@radix-ui/react-use-layout-effect': 1.0.1(@types/react@18.2.45)(react@18.2.0)
       '@types/react': 18.2.45
       react: 18.2.0
@@ -907,7 +907,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.23.6
       '@floating-ui/react-dom': 2.0.2(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-arrow': 1.0.3(@types/react-dom@18.2.18)(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.45)(react@18.2.0)
@@ -937,7 +937,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.23.6
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.2.18)(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)
       '@types/react': 18.2.45
       '@types/react-dom': 18.2.18
@@ -958,7 +958,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.23.6
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.45)(react@18.2.0)
       '@radix-ui/react-use-layout-effect': 1.0.1(@types/react@18.2.45)(react@18.2.0)
       '@types/react': 18.2.45
@@ -980,7 +980,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.23.6
       '@radix-ui/react-slot': 1.0.2(@types/react@18.2.45)(react@18.2.0)
       '@types/react': 18.2.45
       '@types/react-dom': 18.2.18
@@ -1028,7 +1028,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.23.6
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.45)(react@18.2.0)
       '@types/react': 18.2.45
       react: 18.2.0
@@ -1089,7 +1089,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.23.6
       '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@18.2.45)(react@18.2.0)
       '@types/react': 18.2.45
       react: 18.2.0
@@ -1119,7 +1119,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.23.6
       '@types/react': 18.2.45
       react: 18.2.0
     dev: false
@@ -1133,7 +1133,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.23.6
       '@types/react': 18.2.45
       react: 18.2.0
     dev: false
@@ -1162,7 +1162,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.23.6
       '@radix-ui/react-use-layout-effect': 1.0.1(@types/react@18.2.45)(react@18.2.0)
       '@types/react': 18.2.45
       react: 18.2.0
@@ -1181,7 +1181,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.2
+      '@babel/runtime': 7.23.6
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.2.18)(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)
       '@types/react': 18.2.45
       '@types/react-dom': 18.2.18
@@ -1214,8 +1214,8 @@ packages:
       reselect: 5.0.1
     dev: false
 
-  /@remix-run/router@1.14.0:
-    resolution: {integrity: sha512-WOHih+ClN7N8oHk9N4JUiMxQJmRVaOxcg8w7F/oHUXzJt920ekASLI/7cYX8XkntDWRhLZtsk6LbGrkgOAvi5A==}
+  /@remix-run/router@1.14.1:
+    resolution: {integrity: sha512-Qg4DMQsfPNAs88rb2xkdk03N3bjK4jgX5fR24eHCTR9q6PrhZQZ4UJBPzCHJkIpTRN1UKxx2DzjZmnC+7Lj0Ow==}
     engines: {node: '>=14.0.0'}
     dev: false
 
@@ -2581,8 +2581,8 @@ packages:
       semver: 7.5.4
     dev: true
 
-  /eslint-plugin-prettier@5.1.0(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1):
-    resolution: {integrity: sha512-hQc+2zbnMeXcIkg+pKZtVa+3Yqx4WY7SMkn1PLZ4VbBEU7jJIpVn9347P8BBhTbz6ne85aXvQf30kvexcqBeWw==}
+  /eslint-plugin-prettier@5.1.1(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1):
+    resolution: {integrity: sha512-WQpV3mSmIobb77s4qiCZu3dBrZZ0rj8ckSfBtRrgNK9Wnh2s3eiaxNTWloz1LJ1WtvqZES/PAI7PLvsrGt/CEA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       '@types/eslint': '>=8.0.0'
@@ -3553,8 +3553,8 @@ packages:
       yallist: 4.0.0
     dev: true
 
-  /lucide-react@0.299.0(react@18.2.0):
-    resolution: {integrity: sha512-59MiDzDzFI/efHhb4n0vGdXelMNwou7JlAFvVS4boA1G/7aYU7garPciYo73CODzkhrhz0JOgdtSTPSe5dMrlQ==}
+  /lucide-react@0.300.0(react@18.2.0):
+    resolution: {integrity: sha512-rQxUUCmWAvNLoAsMZ5j04b2+OJv6UuNLYMY7VK0eVlm4aTwUEjEEHc09/DipkNIlhXUSDn2xoyIzVT0uh7dRsg==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
@@ -4006,26 +4006,26 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /react-router-dom@6.21.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-1dUdVj3cwc1npzJaf23gulB562ESNvxf7E4x8upNJycqyUm5BRRZ6dd3LrlzhtLaMrwOCO8R0zoiYxdaJx4LlQ==}
+  /react-router-dom@6.21.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-QCNrtjtDPwHDO+AO21MJd7yIcr41UetYt5jzaB9Y1UYaPTCnVuJq6S748g1dE11OQlCFIQg+RtAA1SEZIyiBeA==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       react: '>=16.8'
       react-dom: '>=16.8'
     dependencies:
-      '@remix-run/router': 1.14.0
+      '@remix-run/router': 1.14.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      react-router: 6.21.0(react@18.2.0)
+      react-router: 6.21.1(react@18.2.0)
     dev: false
 
-  /react-router@6.21.0(react@18.2.0):
-    resolution: {integrity: sha512-hGZ0HXbwz3zw52pLZV3j3+ec+m/PQ9cTpBvqjFQmy2XVUWGn5MD+31oXHb6dVTxYzmAeaiUBYjkoNz66n3RGCg==}
+  /react-router@6.21.1(react@18.2.0):
+    resolution: {integrity: sha512-W0l13YlMTm1YrpVIOpjCADJqEUpz1vm+CMo47RuFX4Ftegwm6KOYsL5G3eiE52jnJpKvzm6uB/vTKTPKM8dmkA==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       react: '>=16.8'
     dependencies:
-      '@remix-run/router': 1.14.0
+      '@remix-run/router': 1.14.1
       react: 18.2.0
     dev: false
 
@@ -4411,8 +4411,8 @@ packages:
       tslib: 2.6.2
     dev: true
 
-  /tailwind-merge@2.1.0:
-    resolution: {integrity: sha512-l11VvI4nSwW7MtLSLYT4ldidDEUwQAMWuSHk7l4zcXZDgnCRa0V3OdCwFfM7DCzakVXMNRwAeje9maFFXT71dQ==}
+  /tailwind-merge@2.2.0:
+    resolution: {integrity: sha512-SqqhhaL0T06SW59+JVNfAqKdqLs0497esifRrZ7jOaefP3o64fdFNDMrAQWZFMxTLJPiHVjRLUywT8uFz1xNWQ==}
     dependencies:
       '@babel/runtime': 7.23.6
     dev: false

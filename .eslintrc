@@ -98,6 +98,7 @@
     ],
     
     "jsx-a11y/anchor-is-valid": "warn",
+    "jsx-a11y/media-has-caption": "warn",
     "prettier/prettier": "warn",
     "promise/catch-or-return": "error",
     "promise/no-new-statics": "error",
