@@ -42,9 +42,6 @@ export default function PlayerController(): JSX.Element {
       <div className="flex w-full flex-row items-center gap-2 text-zinc-200">
         <TimeDisplay seconds={audio.currentTime} />
 
-        <audio ref={audioReference}>
-          <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" />
-        </audio>
         <Slider
           defaultValue={[1]}
           min={0}
