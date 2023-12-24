@@ -37,9 +37,9 @@ export const selectProgressBarStates = createSelector([duration, currentTime], (
 });
 
 export const selectAudioPlayerStates = createSelector(
-  [audioSource, volume, isMuted, isPlaying],
-  (audioSource, volume, isMuted, isPlaying) => {
-    return { audioSource, volume, isMuted, isPlaying };
+  [audioSource, currentTime, volume, isMuted, isPlaying],
+  (audioSource, currentTime, volume, isMuted, isPlaying) => {
+    return { audioSource, currentTime, volume, isMuted, isPlaying };
   },
 );
 
