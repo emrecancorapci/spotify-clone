@@ -16,7 +16,7 @@ export default function TrackDisplayer() {
 
   const iconProperty = { strokeWidth: 2.5, size: 26 };
   return (
-    <div className="flex min-w-[30vw] flex-row items-center gap-2 lg:min-w-[15vw]">
+    <div className="flex min-w-[30vw] flex-row items-center gap-2 lg:min-w-[13vw]">
       <img src={currentSong.albumCover} alt={`${currentSong.album}'s cover`} className="h-14 w-14 rounded-md" />
       <div className="flex flex-col justify-center px-2">
         <h3 className="text-sm font-normal text-white">{currentSong.name}</h3>

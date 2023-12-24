@@ -14,7 +14,7 @@ export default function ButtonGroup(): JSX.Element {
   const { isPlaying, isShuffle, isRepeat } = useTypedSelector(selectButtonGroupStates);
   const dispatch = useAppDispatch();
 
-  const iconProperty = { strokeWidth: 2.5, size: 20 };
+  const iconProperty = { strokeWidth: 2.5, size: 18 };
 
   const onPlay = () => dispatch(togglePlay());
   const onShuffle = () => dispatch(toggleShuffle());
@@ -23,9 +23,9 @@ export default function ButtonGroup(): JSX.Element {
   const onNext = () => dispatch(setAudioSource('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3'));
 
   return (
-    <div className="flex flex-row justify-center gap-3">
+    <div className="flex flex-row justify-center gap-3 pb-1">
       <ControlButton type="switch" switchControl={isShuffle} onClick={onShuffle}>
-        {isShuffle ? <ShuffleIcon {...iconProperty} /> : <ShuffleIcon {...iconProperty} />}
+        {isShuffle ? <ShuffleIcon {...iconProperty} size={17} /> : <ShuffleIcon {...iconProperty} size={17} />}
       </ControlButton>
 
       <ControlButton type="button" onClick={onPrevious}>
