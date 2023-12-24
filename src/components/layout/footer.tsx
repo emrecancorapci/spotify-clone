@@ -6,7 +6,7 @@ import TrackDisplayer from './footer/track-displayer';
 export default function Footer(): JSX.Element {
   return (
     <div className="flex flex-row items-center justify-between p-2">
-      <AudioPlayer src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" />
+      <AudioPlayer />
       <TrackDisplayer />
       <PlayerController />
       <OtherControls />
