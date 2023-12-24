@@ -12,15 +12,8 @@
       ]
     },
     "import/resolver": {
-      "node": {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx"
-        ]
-      },
-      "typescript": {}
+      "typescript": true,
+      "node": true
     },
     "react": {
       "version": "detect"
@@ -65,12 +58,14 @@
     "plugin:@typescript-eslint/recommended-type-checked",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
+    "plugin:testing-library/react",
     "plugin:jsx-a11y/recommended",
     "plugin:unicorn/recommended",
     "plugin:react-hooks/recommended",
     "plugin:security/recommended-legacy",
     "plugin:promise/recommended",
     "plugin:import/recommended",
+    "plugin:import/typescript",
     "plugin:n/recommended",
     "plugin:tailwindcss/recommended",
     "prettier"
