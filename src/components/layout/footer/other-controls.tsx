@@ -1,4 +1,5 @@
 import { ListMusicIcon, Mic2Icon, MonitorSpeaker, PlaySquareIcon } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 import { toggleIsNowPlaying } from '@/features/app-controller/app-controller-slice';
 import { useAppDispatch } from '@/store';
@@ -8,10 +9,13 @@ import VolumeController from './volume-controller';
 
 export default function OtherControls(): JSX.Element {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
-  const openPlayingView = () => {
-    dispatch(toggleIsNowPlaying());
-  };
+  const navigateIfSameGoBack = (path: string) => (location.pathname === path ? navigate(-1) : navigate(path));
+
+  const openPlayingView = () => dispatch(toggleIsNowPlaying());
+  const openLyrics = () => navigateIfSameGoBack('/lyrics');
+  const openQueue = () => navigateIfSameGoBack('/queue');
 
   const iconProperty = { strokeWidth: 2.5, size: 18 };
 
@@ -20,10 +24,10 @@ export default function OtherControls(): JSX.Element {
       <ControlButton tooltipText="Now Playing View" type="button" onClick={openPlayingView}>
         <PlaySquareIcon {...iconProperty} />
       </ControlButton>
-      <ControlButton tooltipText="Lyrics" type="button" onClick={openPlayingView}>
+      <ControlButton tooltipText="Lyrics" type="button" onClick={openLyrics}>
         <Mic2Icon {...iconProperty} />
       </ControlButton>
-      <ControlButton tooltipText="Queue" type="button" onClick={openPlayingView}>
+      <ControlButton tooltipText="Queue" type="button" onClick={openQueue}>
         <ListMusicIcon {...iconProperty} />
       </ControlButton>
       <ControlButton type="button" onClick={openPlayingView}>
