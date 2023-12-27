@@ -1,11 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface AppControllerState {
   isNowPlayingVisible: boolean;
+  isLeftPanelExpanded?: boolean;
 }
 
 const initialState: AppControllerState = {
   isNowPlayingVisible: false,
+  isLeftPanelExpanded: false,
 };
 
 export const appControllerSlice = createSlice({
@@ -14,6 +16,9 @@ export const appControllerSlice = createSlice({
   reducers: {
     toggleIsNowPlaying: (state) => {
       state.isNowPlayingVisible = !state.isNowPlayingVisible;
+    },
+    setIsLeftPanelExpanded: (state, action: PayloadAction<boolean>) => {
+      state.isLeftPanelExpanded = action.payload;
     },
   },
 });
