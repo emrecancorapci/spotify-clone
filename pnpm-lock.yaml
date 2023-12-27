@@ -32,6 +32,9 @@ dependencies:
   react-redux:
     specifier: ^9.0.4
     version: 9.0.4(@types/react@18.2.45)(react@18.2.0)(redux@5.0.0)
+  react-resizable-panels:
+    specifier: ^1.0.5
+    version: 1.0.5(react-dom@18.2.0)(react@18.2.0)
   react-router-dom:
     specifier: ^6.21.1
     version: 6.21.1(react-dom@18.2.0)(react@18.2.0)
@@ -4005,6 +4008,16 @@ packages:
     resolution: {integrity: sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /react-resizable-panels@1.0.5(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-OP0whNQCko+f4BgoptGaeIc7StBRyeMeJ+8r/7rXACBDf9W5EcMWuM32hfqPDMenS2HFy/eZVi/r8XqK+ZIEag==}
+    peerDependencies:
+      react: ^16.14.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.14.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /react-router-dom@6.21.1(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-QCNrtjtDPwHDO+AO21MJd7yIcr41UetYt5jzaB9Y1UYaPTCnVuJq6S748g1dE11OQlCFIQg+RtAA1SEZIyiBeA==}
