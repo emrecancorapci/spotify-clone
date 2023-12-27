@@ -1,14 +1,14 @@
 import { PauseIcon, PlayIcon, Repeat1Icon, RepeatIcon, ShuffleIcon, SkipBackIcon, SkipForwardIcon } from 'lucide-react';
 
+import ControlButton from '@/components/ui/control-button';
+import { selectButtonGroupStates } from '@/features/player-controller/player-controller-selectors';
 import {
   setAudioSource,
   togglePlay,
   toggleRepeat,
   toggleShuffle,
 } from '@/features/player-controller/player-controller-slice';
-import { selectButtonGroupStates, useAppDispatch, useTypedSelector } from '@/store';
-
-import ControlButton from '../control-button';
+import { useAppDispatch, useTypedSelector } from '@/store';
 
 export default function ButtonGroup(): JSX.Element {
   const { isPlaying, isShuffle, isRepeat } = useTypedSelector(selectButtonGroupStates);

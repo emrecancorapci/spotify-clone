@@ -1,10 +1,10 @@
 import { ListMusicIcon, Mic2Icon, MonitorSpeaker, PlaySquareIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
+import ControlButton from '@/components/ui/control-button';
 import { toggleIsNowPlaying } from '@/features/app-controller/app-controller-slice';
 import { useAppDispatch } from '@/store';
 
-import ControlButton from './control-button';
 import VolumeController from './volume-controller';
 
 export default function OtherControls(): JSX.Element {

@@ -2,8 +2,9 @@
 import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { selectAudioPlayerStates } from '@/features/player-controller/player-controller-selectors';
 import { setCurrentTime, setDuration, togglePlay } from '@/features/player-controller/player-controller-slice';
-import { selectAudioPlayerStates, useTypedSelector } from '@/store';
+import { useTypedSelector } from '@/store';
 
 export default function AudioPlayer(): JSX.Element {
   const dispatch = useDispatch();

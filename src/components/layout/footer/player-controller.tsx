@@ -1,8 +1,9 @@
 import { useDispatch } from 'react-redux';
 
 import { Slider } from '@/components/ui/slider';
+import { selectProgressBarStates } from '@/features/player-controller/player-controller-selectors';
 import { setCurrentTime } from '@/features/player-controller/player-controller-slice';
-import { selectProgressBarStates, useTypedSelector } from '@/store';
+import { useTypedSelector } from '@/store';
 
 import ButtonGroup from './player-controller/button-group';
 import TimeDisplay from './player-controller/time-display';

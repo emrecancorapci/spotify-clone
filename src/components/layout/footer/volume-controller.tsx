@@ -1,11 +1,11 @@
 import { Volume1Icon, Volume2Icon, VolumeIcon, VolumeXIcon } from 'lucide-react';
 import { useDispatch } from 'react-redux';
 
+import ControlButton from '@/components/ui/control-button';
 import { Slider } from '@/components/ui/slider';
+import { selectOtherControlsStates } from '@/features/player-controller/player-controller-selectors';
 import { setVolume, toggleMute } from '@/features/player-controller/player-controller-slice';
-import { selectOtherControlsStates, useTypedSelector } from '@/store';
-
-import ControlButton from './control-button';
+import { useTypedSelector } from '@/store';
 
 export default function VolumeController(): JSX.Element {
   const { volume, isMuted } = useTypedSelector(selectOtherControlsStates);
