@@ -1,33 +1,10 @@
 import { HomeIcon, LibraryBig, SearchIcon } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
+import LibraryCard from './sidebar/library-card';
+import SidebarCard from './sidebar/sidebar-card';
+
 export default function Sidebar(): JSX.Element {
-  const SidebarCard = ({ children }: { children: React.ReactNode | undefined }) => (
-    <div className="flex w-full flex-col items-center gap-6 rounded-lg bg-zinc-900 py-4 text-white">{children}</div>
-  );
-
-  // const LibraryCard = ({
-  //   name,
-  //   image,
-  //   songCount,
-  //   isPinned,
-  // }: {
-  //   name: string;
-  //   image?: string;
-  //   songCount: number;
-  //   isPinned: boolean;
-  // }) => (
-  //   <div className="rounded-lg p-2 hover:bg-zinc-800">
-  //     <div className="flex items-center gap-2">
-  //       <div className="h-12 w-12 shrink-0 rounded-lg bg-zinc-700" style={{ backgroundImage: `url(${image})` }} />
-  //       <div className="flex flex-col">
-  //         <div className="text-sm font-semibold">{name}</div>
-  //         <div className="text-xs text-zinc-500">{songCount} songs</div>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
-
   const iconProperties = { strokeWidth: 2.5, size: 26 };
 
   return (
@@ -42,6 +19,11 @@ export default function Sidebar(): JSX.Element {
       </SidebarCard>
       <SidebarCard>
         <LibraryBig {...iconProperties} />
+        <div>
+          <LibraryCard library={{ name: 'Liked Songs', songCount: 0 }} isPinned={false} />
+          <LibraryCard library={{ name: 'Heavy Metal', songCount: 0 }} isPinned={false} />
+          <LibraryCard library={{ name: 'Jazz', songCount: 0 }} isPinned={false} />
+        </div>
       </SidebarCard>
     </div>
   );
