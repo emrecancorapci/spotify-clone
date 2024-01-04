@@ -20,7 +20,7 @@ const ControlButton = memo(function ControlButtonComponent({
   onClick,
 }: Properties) {
   return (
-    <TooltipWrapper tooltipText={tooltipText}>
+    <TooltipWrapper tooltipContent={tooltipText}>
       {type === 'button' ? (
         <button
           onClick={onClick}

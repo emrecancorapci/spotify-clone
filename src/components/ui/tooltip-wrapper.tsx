@@ -1,22 +1,30 @@
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 
 interface Properties {
-  tooltipText?: string;
-  children: React.ReactNode | undefined;
+  tooltipContent?: React.ReactNode | string | undefined;
+  side?: 'top' | 'bottom' | 'left' | 'right';
+  sideOffset?: number;
+  children: React.ReactNode;
 }
 
-export default function TooltipWrapper({ tooltipText, children }: Properties): JSX.Element {
+export default function TooltipWrapper({ tooltipContent, side, sideOffset, children }: Properties): JSX.Element {
+  const isContentEmpty = tooltipContent === undefined || tooltipContent === '' || tooltipContent === null;
+
   return (
     <>
-      {tooltipText !== undefined && tooltipText.length > 0 ? (
+      {isContentEmpty ? (
+        <>{children}</>
+      ) : (
         <Tooltip>
           <TooltipTrigger asChild>{children}</TooltipTrigger>
-          <TooltipContent sideOffset={8} className="rounded border-0 bg-zinc-800 p-1 px-2 text-white">
-            {tooltipText}
+          <TooltipContent
+            side={side ?? 'top'}
+            sideOffset={sideOffset ?? 8}
+            className="rounded border-0 bg-zinc-800 p-1 px-2 text-white"
+          >
+            {tooltipContent}
           </TooltipContent>
         </Tooltip>
-      ) : (
-        <>{children}</>
       )}
     </>
   );
