@@ -3,11 +3,8 @@ interface Properties {
   gap?: number;
 }
 
-export default function SidebarCard({ children, gap = 6 }: Properties): JSX.Element {
-  const gapClass = `gap-${gap}`;
+export default function SidebarCard({ children }: Properties): JSX.Element {
   return (
-    <div className={`flex w-full flex-col items-center rounded-lg bg-zinc-900 py-4 text-white ${gapClass}`}>
-      {children}
-    </div>
+    <div className={`flex w-full flex-col items-center gap-6 rounded-lg bg-zinc-900 py-4 text-white`}>{children}</div>
   );
 }
