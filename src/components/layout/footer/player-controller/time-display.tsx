@@ -8,7 +8,7 @@ const TimeDisplay = memo(({ seconds }: { seconds: number }) => {
   const formattedSeconds = String(Math.round(remainingSeconds)).padStart(2, '0');
 
   return (
-    <p className="text-xs text-zinc-400">
+    <p className="text-xs text-s-gray-light">
       {formattedMinutes}:{formattedSeconds}
     </p>
   );

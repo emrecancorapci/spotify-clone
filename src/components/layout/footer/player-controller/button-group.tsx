@@ -34,7 +34,7 @@ export default function ButtonGroup(): JSX.Element {
 
       <ControlButton
         onClick={onPlay}
-        className="bg-zinc-100 text-black transition-transform duration-100 hover:scale-105 active:scale-95"
+        className="bg-s-gray-lightest text-black transition-transform duration-100 hover:scale-105 active:scale-95"
       >
         {isPlaying ? <PauseIcon {...iconProperty} /> : <PlayIcon className="relative left-[1px]" {...iconProperty} />}
       </ControlButton>

@@ -24,7 +24,9 @@ const ControlButton = memo(function ControlButtonComponent({
       {type === 'button' ? (
         <button
           onClick={onClick}
-          className={'flex items-center justify-center rounded-full p-2 text-zinc-400 hover:text-zinc-100 ' + className}
+          className={
+            'flex items-center justify-center rounded-full p-2 text-s-gray-light hover:text-gray-lightest ' + className
+          }
         >
           {children}
         </button>
@@ -32,7 +34,7 @@ const ControlButton = memo(function ControlButtonComponent({
         <button
           onClick={onClick}
           className={`flex items-center justify-center rounded-full p-2 ${
-            switchControl ? 'text-green-500 hover:text-green-400' : 'text-zinc-400 hover:text-zinc-100'
+            switchControl ? 'text-s-green hover:text-s-green-light' : 'text-s-gray-light hover:text-s-gray-lightest'
           } ${className}`}
         >
           {children}

@@ -21,7 +21,11 @@ export default function VolumeController(): JSX.Element {
 
   return (
     <div className="group flex w-32 flex-row items-center">
-      <ControlButton tooltipText="Mute" className="text-zinc-400 group-hover:text-zinc-100" onClick={onMuteButton}>
+      <ControlButton
+        tooltipText="Mute"
+        className="text-s-gray-light group-hover:text-s-gray-lightest"
+        onClick={onMuteButton}
+      >
         {isMuted || volume === 0 ? (
           <VolumeXIcon {...iconProperty} />
         ) : volume > 0 && volume < 0.3 ? (
