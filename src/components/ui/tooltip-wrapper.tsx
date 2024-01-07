@@ -20,7 +20,7 @@ export default function TooltipWrapper({ tooltipContent, side, sideOffset, child
           <TooltipContent
             side={side ?? 'top'}
             sideOffset={sideOffset ?? 8}
-            className="rounded border-0 bg-s-gray-dark p-1 px-2 text-white"
+            className="rounded border-0 bg-s-gray-darker p-1 px-2 text-white"
           >
             {tooltipContent}
           </TooltipContent>
