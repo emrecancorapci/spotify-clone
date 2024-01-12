@@ -1,62 +1,31 @@
-# Tauri + React + TypeScript + Vite + Tailwind 
+# Tauri/React Spotify Clone Application Project
 
-This template provides a setup to get React running on Vite and Tauri. Tailwind is installed in the project and includes some ESLint rules to help in the development process.
+## Description
+
+This is a Spotify clone application built with React and Tauri. It aims to be a desktop application that allows users to search for songs, artists, and albums. Users will also be able to play songs, pause songs, and skip songs.
 
 ## Getting Started
 
 ### Prerequisites
 
-#### For Windows:
-- Install `Microsoft Visual Studio C++ Build Tools` from [here](https://visualstudio.microsoft.com/visual-cpp-build-tools/). Select `C++ build tools` and `Windows 10 SDK` in the installer.
-- Download and run the `Evergreen Bootstrapper` from [here](https://developer.microsoft.com/en-us/microsoft-edge/webview2/#download-section).
-- Install `Rust` with `rustup` from [here](https://www.rust-lang.org/tools/install).
-- Install `Node.js` from [here](https://nodejs.org/en/download/).
-- Install `pnpm` from [here](https://pnpm.io/installation). (Optional)
-
-#### For Linux(Debian/Ubuntu):
-
-- Run the following commands in your terminal:
-
-   ```bash
-   sudo apt update
-   sudo apt install libwebkit2gtk-4.0-dev \
-      build-essential \
-      curl \
-      wget \
-      file \
-      libssl-dev \
-      libgtk-3-dev \
-      libayatana-appindicator3-dev \
-      librsvg2-dev
-   ```
-
-- To install Rust on Linux, open a terminal and enter the following command:
-
-   ```bash
-   curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
-   ```
-
-#### For MacOS:
-
-- To install Rust on macOS, open a terminal and enter the following command:
-
-   ```bash
-   curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
-   ```
-
-To find more detailed information about prerequisites check [docs](https://tauri.app/v1/guides/getting-started/prerequisites).
+Prerequisities can be found in [here](docs/PREREQUISITES.md)
 
 ### Installation
 
 1. Clone the repo to your local machine using a terminal
+
    ```bash
    git clone https://github.com/emrecancorapci/tauri-react-typescript-tailwind
    ```
+
 2. Change directory
+
    ```bash
    cd tauri-react-typescript-tailwind
    ```
+
 3. Install NPM packages
+
    ```bash
    pnpm install
    ```
@@ -65,25 +34,71 @@ To find more detailed information about prerequisites check [docs](https://tauri
 
 ### Development
 
-To start the development server `using Tauri`, run the following command:
+- Run the web application
 
-```bash
-pnpm dev:tauri
-```
+   ```bash
+   pnpm dev
+   ```
 
-You can start the development server `without using Tauri`. To do this, run the following command:
+- Run the desktop application
 
-```bash
-pnpm dev
-```
+   ```bash
+   pnpm dev:tauri
+   ```
 
-### Build
+## License
 
-To build the project, you must change the bundle identifier in `tauri.conf.json > tauri > bundle > identifier`. The default value `com.tauri.dev` is not allowed as it must be unique across applications.
+This project is licensed under the [MIT License](LICENSE).
 
-To build the project, run the following command:
+## Roadmap
 
-```bash
-pnpm build:tauri
-```
-For more details about build, check [docs](https://tauri.app/v1/guides/building).
+### Basic Features
+
+- [x] Create main layout
+- [x] Audio player control components
+- [x] Sidebar basic layout
+- [x] Tooltip implementation
+- [x] Audio player logic with redux
+- [x] Resizable layout
+- [ ] Expandable sidebar
+- [ ] Playlist page
+- [ ] MediaStream API implementation
+- [ ] Playable static playlist
+- [ ] Queue implementation
+- [ ] Basic user profile page
+- [ ] Basic artist page
+- [ ] Album page
+- [ ] Basic song page
+- [ ] Skeleton loading
+- [ ] Settings page
+- [ ] User authentication & authorization on web
+- [ ] Login page
+- [ ] Now playing module
+- [ ] Basic search functionality
+- [ ] Shareable links
+- [ ] Footer
+  
+### Advanced Features
+
+- [ ] Playlist customization
+- [ ] Web Audio API implementation
+- [ ] Drag and drop implementation
+- [ ] Context menu (share, add to playlist, etc.)
+- [ ] Library filtering & sorting
+- [ ] Library folders implementation
+- [ ] Artist page improvements (top tracks, related artists, etc.)
+- [ ] Search page improvements (search by artist, album, etc.)
+- [ ] User profile page improvements (recently played, top artists, top tracks, etc.)
+- [ ] Song page improvements (lyrics, etc.)
+- [ ] Queue improvements (reorder, remove, etc.)
+- [ ] Dynamic playlist background (color based on album art)
+- [ ] User authentication & authorization on desktop (needs to be written in Rust)
+- [ ] Mobile support
+
+### Extra Features
+
+- [ ] Audio visualizer (dynamic player background based on audio frequency)
+- [ ] Offline mode
+- [ ] Lyrics
+- [ ] Custom themes
+- [ ] Light mode
