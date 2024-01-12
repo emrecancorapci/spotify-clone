@@ -17,20 +17,20 @@ export default function OtherControls(): JSX.Element {
   const openLyrics = () => navigateIfSameGoBack('/lyrics');
   const openQueue = () => navigateIfSameGoBack('/queue');
 
-  const iconProperty = { strokeWidth: 2.5, size: 18 };
+  const iconProperty = { size: 18, strokeWidth: 2.5 };
 
   return (
     <div className="flex w-auto flex-row items-center">
-      <ControlButton tooltipText="Now Playing View" type="button" onClick={openPlayingView}>
+      <ControlButton onClick={openPlayingView} tooltipText="Now Playing View" type="button">
         <PlaySquareIcon {...iconProperty} />
       </ControlButton>
-      <ControlButton tooltipText="Lyrics" type="button" onClick={openLyrics}>
+      <ControlButton onClick={openLyrics} tooltipText="Lyrics" type="button">
         <Mic2Icon {...iconProperty} />
       </ControlButton>
-      <ControlButton tooltipText="Queue" type="button" onClick={openQueue}>
+      <ControlButton onClick={openQueue} tooltipText="Queue" type="button">
         <ListMusicIcon {...iconProperty} />
       </ControlButton>
-      <ControlButton type="button" onClick={openPlayingView}>
+      <ControlButton onClick={openPlayingView} type="button">
         <MonitorSpeaker {...iconProperty} />
       </ControlButton>
       <VolumeController />

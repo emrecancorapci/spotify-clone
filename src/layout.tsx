@@ -12,35 +12,35 @@ export default function Layout() {
 
   return (
     <div className="flex h-screen w-full flex-col gap-2 bg-black p-2">
-      <ResizablePanelGroup direction="horizontal" autoSaveId="persistence" className="flex flex-1 gap-1 self-stretch">
+      <ResizablePanelGroup autoSaveId="persistence" className="flex flex-1 gap-1 self-stretch" direction="horizontal">
         <ResizablePanel
-          order={1}
-          defaultSize={3}
-          minSize={3}
-          maxSize={70}
           className="flex min-w-[72px] items-start justify-center"
+          defaultSize={3}
+          maxSize={70}
+          minSize={3}
+          order={1}
         >
           <Sidebar />
         </ResizablePanel>
         <ResizableHandle className="-left-1" />
         <ResizablePanel
-          order={2}
+          className="flex w-full flex-1 overflow-hidden text-clip rounded-lg"
           defaultSize={90}
           maxSize={90}
           minSize={30}
-          className="flex w-full flex-1 overflow-hidden text-clip rounded-lg"
+          order={2}
         >
           <Outlet />
         </ResizablePanel>
         <ResizableHandle className={`-right-1 ${isNowPlayingVisible ? '' : 'hidden'}`} />
         <ResizablePanel
-          order={3}
-          defaultSize={12}
-          minSize={12}
-          maxSize={22}
           className={`${
             isNowPlayingVisible ? 'flex' : 'hidden'
           } min-w-[280px] items-start justify-center overflow-hidden text-clip rounded-lg bg-s-gray-darkest p-2 text-white`}
+          defaultSize={12}
+          maxSize={22}
+          minSize={12}
+          order={3}
         >
           Now Playing Bar
         </ResizablePanel>

@@ -8,7 +8,7 @@ import { useTypedSelector } from '@/store';
 
 export default function AudioPlayer(): JSX.Element {
   const dispatch = useDispatch();
-  const { audioSource, currentTime, volume, isMuted, isPlaying } = useTypedSelector(selectAudioPlayerStates);
+  const { audioSource, currentTime, isMuted, isPlaying, volume } = useTypedSelector(selectAudioPlayerStates);
 
   const audioReferece = useRef<HTMLAudioElement>(null);
   const source = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
@@ -34,18 +34,14 @@ export default function AudioPlayer(): JSX.Element {
   useEffect(() => {
     if (audioReferece.current === null || volume === undefined) return;
 
-    const audio = audioReferece.current;
-
-    audio.volume = volume;
+    audioReferece.current.volume = volume;
   }, [volume]);
 
   // Mute or unmute the audio
   useEffect(() => {
     if (audioReferece.current === null || isMuted === undefined) return;
 
-    const audio = audioReferece.current;
-
-    audio.muted = isMuted;
+    audioReferece.current.muted = isMuted;
   }, [isMuted]);
 
   // Play or pause the audio
@@ -58,20 +54,20 @@ export default function AudioPlayer(): JSX.Element {
     else void audio.pause();
   }, [isPlaying]);
 
+  // Set the current time of the audio
   useEffect(() => {
-    if (audioReferece.current === null || currentTime === undefined) return;
-    if (audioReferece.current.currentTime === currentTime) return;
+    if (
+      audioReferece.current === null ||
+      currentTime === undefined ||
+      audioReferece.current.currentTime === currentTime
+    )
+      return;
 
-    const audio = audioReferece.current;
-
-    audio.currentTime = currentTime;
+    audioReferece.current.currentTime = currentTime;
   }, [currentTime]);
 
   return (
     <audio
-      ref={audioReferece}
-      preload="auto"
-      src={source}
       hidden
       onLoadedMetadata={() => {
         dispatch(setDuration(audioReferece.current?.duration ?? 0));
@@ -80,6 +76,9 @@ export default function AudioPlayer(): JSX.Element {
           dispatch(setCurrentTime(audioReferece.current?.currentTime ?? 0));
         }, 1000);
       }}
+      preload="auto"
+      ref={audioReferece}
+      src={source}
     />
   );
 }

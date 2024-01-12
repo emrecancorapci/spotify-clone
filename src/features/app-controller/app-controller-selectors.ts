@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { RootState } from '@/store';
+import type { RootState } from '@/store';
 
 const appController = (state: RootState) => state.appController;
 
@@ -8,8 +8,8 @@ const isNowPlayingVisible = (state: RootState) => appController(state).isNowPlay
 const isLeftPanelExpanded = (state: RootState) => appController(state).isLeftPanelExpanded;
 
 export const selectLayoutStates = createSelector(
-  [isNowPlayingVisible, isLeftPanelExpanded],
-  (isNowPlayingVisible, isLeftPanelExpanded) => {
-    return { isNowPlayingVisible, isLeftPanelExpanded };
+  [isLeftPanelExpanded, isNowPlayingVisible],
+  (isLeftPanelExpanded, isNowPlayingVisible) => {
+    return { isLeftPanelExpanded, isNowPlayingVisible };
   },
 );

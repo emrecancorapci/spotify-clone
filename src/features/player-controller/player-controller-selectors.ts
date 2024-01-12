@@ -5,14 +5,14 @@ import { RootState } from '@/store';
 const playerController = (state: RootState) => state.playerController;
 
 const audioSource = (state: RootState) => playerController(state).audioSource;
-const volume = (state: RootState) => playerController(state).volume;
-const duration = (state: RootState) => playerController(state).duration;
 const currentTime = (state: RootState) => playerController(state).currentTime;
+const duration = (state: RootState) => playerController(state).duration;
+const volume = (state: RootState) => playerController(state).volume;
 
-const isPlaying = (state: RootState) => playerController(state).isPlaying;
 const isMuted = (state: RootState) => playerController(state).isMuted;
-const isShuffle = (state: RootState) => playerController(state).isShuffle;
+const isPlaying = (state: RootState) => playerController(state).isPlaying;
 const isRepeat = (state: RootState) => playerController(state).isRepeat;
+const isShuffle = (state: RootState) => playerController(state).isShuffle;
 
 export const selectButtonGroupStates = createSelector(
   [isPlaying, isShuffle, isRepeat],
@@ -22,16 +22,16 @@ export const selectButtonGroupStates = createSelector(
 );
 
 export const selectOtherControlsStates = createSelector([volume, isMuted], (volume, isMuted) => {
-  return { volume, isMuted };
+  return { isMuted, volume };
 });
 
 export const selectProgressBarStates = createSelector([duration, currentTime], (duration, currentTime) => {
-  return { duration, currentTime };
+  return { currentTime, duration };
 });
 
 export const selectAudioPlayerStates = createSelector(
   [audioSource, currentTime, volume, isMuted, isPlaying],
   (audioSource, currentTime, volume, isMuted, isPlaying) => {
-    return { audioSource, currentTime, volume, isMuted, isPlaying };
+    return { audioSource, currentTime, isMuted, isPlaying, volume };
   },
 );

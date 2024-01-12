@@ -6,8 +6,8 @@ import playerControllerReducer from './features/player-controller/player-control
 
 export const store = configureStore({
   reducer: {
-    playerController: playerControllerReducer,
     appController: appControllerReducer,
+    playerController: playerControllerReducer,
   },
 });
 

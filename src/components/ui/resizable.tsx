@@ -18,8 +18,8 @@ const ResizablePanel = ResizablePrimitive.Panel;
 export type IResizablePanel = ResizablePrimitive.ImperativePanelHandle;
 
 const ResizableHandle = ({
-  withHandle,
   className,
+  withHandle,
   ...properties
 }: React.ComponentProps<typeof ResizablePrimitive.PanelResizeHandle> & {
   withHandle?: boolean;

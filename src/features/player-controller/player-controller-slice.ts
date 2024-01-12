@@ -2,24 +2,24 @@ import { createSlice, type PayloadAction, type UnknownAction } from '@reduxjs/to
 
 export interface PlayerControllerState {
   audioSource: string | undefined;
-  volume: number;
-  duration: number;
   currentTime: number;
+  duration: number;
   isMuted: boolean;
   isPlaying: boolean;
+  isRepeat: 'all' | 'none' | 'one';
   isShuffle: boolean;
-  isRepeat: 'none' | 'one' | 'all';
+  volume: number;
 }
 
 const initialState: PlayerControllerState = {
   audioSource: undefined,
-  volume: 0.5,
-  duration: 0,
   currentTime: 0,
+  duration: 0,
   isMuted: false,
   isPlaying: false,
-  isShuffle: false,
   isRepeat: 'none',
+  isShuffle: false,
+  volume: 0.5,
 };
 
 function isActionWithNumberPayload(action: UnknownAction): action is PayloadAction<number> {
@@ -31,21 +31,13 @@ function isActionWithStringPayload(action: UnknownAction): action is PayloadActi
 }
 
 export const playerControllerSlice = createSlice({
-  name: 'playerController',
   initialState,
+  name: 'playerController',
   reducers: {
     setAudioSource(state, action) {
       if (!isActionWithStringPayload(action)) return;
 
       state.audioSource = action.payload;
-    },
-    setVolume: (state, action) => {
-      if (!isActionWithNumberPayload(action)) return;
-
-      if (state.isMuted) {
-        state.isMuted = false;
-      }
-      state.volume = action.payload;
     },
     setCurrentTime: (state, action: PayloadAction<number>) => {
       if (!isActionWithNumberPayload(action)) return;
@@ -57,14 +49,19 @@ export const playerControllerSlice = createSlice({
 
       state.duration = action.payload;
     },
+    setVolume: (state, action) => {
+      if (!isActionWithNumberPayload(action)) return;
+
+      if (state.isMuted) {
+        state.isMuted = false;
+      }
+      state.volume = action.payload;
+    },
     toggleMute: (state) => {
       state.isMuted = !state.isMuted;
     },
     togglePlay: (state) => {
       state.isPlaying = !state.isPlaying;
-    },
-    toggleShuffle: (state) => {
-      state.isShuffle = !state.isShuffle;
     },
     toggleRepeat: (state) => {
       switch (state.isRepeat) {
@@ -83,18 +80,21 @@ export const playerControllerSlice = createSlice({
         // No default
       }
     },
+    toggleShuffle: (state) => {
+      state.isShuffle = !state.isShuffle;
+    },
   },
 });
 
 export const {
   setAudioSource,
-  setVolume,
-  setDuration,
   setCurrentTime,
-  togglePlay,
+  setDuration,
+  setVolume,
   toggleMute,
-  toggleShuffle,
+  togglePlay,
   toggleRepeat,
+  toggleShuffle,
 } = playerControllerSlice.actions;
 
 export default playerControllerSlice.reducer;

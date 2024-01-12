@@ -1,31 +1,37 @@
+import { useMemo } from 'react';
+
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 
+type TooltipSide = 'bottom' | 'left' | 'right' | 'top';
+
 interface Properties {
-  tooltipContent?: React.ReactNode | string | undefined;
-  side?: 'top' | 'bottom' | 'left' | 'right';
-  sideOffset?: number;
   children: React.ReactNode;
+  side?: TooltipSide;
+  sideOffset?: number;
+  tooltipContent?: React.ReactNode | string | undefined;
 }
 
-export default function TooltipWrapper({ tooltipContent, side, sideOffset, children }: Properties): JSX.Element {
+export default function TooltipWrapper({ children, side, sideOffset, tooltipContent }: Properties): JSX.Element {
   const isContentEmpty = tooltipContent === undefined || tooltipContent === '' || tooltipContent === null;
+  const defaultOffset = 8;
 
-  return (
-    <>
-      {isContentEmpty ? (
-        <>{children}</>
-      ) : (
-        <Tooltip>
-          <TooltipTrigger asChild>{children}</TooltipTrigger>
-          <TooltipContent
-            side={side ?? 'top'}
-            sideOffset={sideOffset ?? 8}
-            className="rounded border-0 bg-s-gray-darker p-1 px-2 text-white"
-          >
-            {tooltipContent}
-          </TooltipContent>
-        </Tooltip>
-      )}
-    </>
+  const memoizedTooltipContent = useMemo(() => {
+    if (isContentEmpty) return;
+    return tooltipContent;
+  }, [isContentEmpty, tooltipContent]);
+
+  return isContentEmpty ? (
+    <>{children}</>
+  ) : (
+    <Tooltip>
+      <TooltipTrigger asChild>{children}</TooltipTrigger>
+      <TooltipContent
+        className="rounded border-0 bg-s-gray-darker p-1 px-2 text-white"
+        side={side ?? 'top'}
+        sideOffset={sideOffset ?? defaultOffset}
+      >
+        {memoizedTooltipContent}
+      </TooltipContent>
+    </Tooltip>
   );
 }

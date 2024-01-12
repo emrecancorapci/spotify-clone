@@ -1,3 +1,4 @@
+/* eslint-disable react-perf/jsx-no-new-array-as-prop */
 import { useDispatch } from 'react-redux';
 
 import { Slider } from '@/components/ui/slider';
@@ -13,6 +14,7 @@ export default function PlayerController(): JSX.Element {
   const dispatch = useDispatch();
 
   const onSliderChange = (value: number[]) => {
+    if (value[0] === undefined) return;
     dispatch(setCurrentTime(value[0]));
   };
 
@@ -24,12 +26,12 @@ export default function PlayerController(): JSX.Element {
         <TimeDisplay seconds={currentTime} />
 
         <Slider
-          defaultValue={[1]}
-          min={0}
-          value={[currentTime]}
-          onValueChange={onSliderChange}
+          defaultValue={[0]}
           max={duration}
+          min={0}
+          onValueChange={onSliderChange}
           step={1}
+          value={[currentTime]}
         />
 
         <TimeDisplay seconds={duration} />

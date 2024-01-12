@@ -1,3 +1,4 @@
+/* eslint-disable @arthurgeron/react-usememo/require-usememo */
 import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
 
 import Layout from './layout';
@@ -9,14 +10,14 @@ import Search from './pages/search';
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="search" element={<Search />} />
-        <Route path="lyrics" element={<Lyrics />} />
-        <Route path="queue" element={<Queue />} />
+      <Route element={<Layout />} path="/">
+        <Route element={<Home />} index />
+        <Route element={<Search />} path="search" />
+        <Route element={<Lyrics />} path="lyrics" />
+        <Route element={<Queue />} path="queue" />
       </Route>
 
-      <Route path="*" element={<div>Not Found</div>} />
+      <Route element={<div>Not Found</div>} path="*" />
     </>,
   ),
 );

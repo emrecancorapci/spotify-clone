@@ -1,28 +1,30 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 export interface AppControllerState {
-  isNowPlayingVisible: boolean;
   isLeftPanelExpanded?: boolean;
+  isNowPlayingVisible: boolean;
 }
 
 const initialState: AppControllerState = {
-  isNowPlayingVisible: false,
   isLeftPanelExpanded: false,
+  isNowPlayingVisible: false,
 };
 
-export const appControllerSlice = createSlice({
-  name: 'appController',
+const appControllerSlice = createSlice({
   initialState,
+  name: 'appController',
+
   reducers: {
+    setIsLeftPanelExpanded: (state, { payload }: PayloadAction<boolean>) => {
+      state.isLeftPanelExpanded = payload;
+    },
+
     toggleIsNowPlaying: (state) => {
       state.isNowPlayingVisible = !state.isNowPlayingVisible;
-    },
-    setIsLeftPanelExpanded: (state, action: PayloadAction<boolean>) => {
-      state.isLeftPanelExpanded = action.payload;
     },
   },
 });
 
-export const { toggleIsNowPlaying } = appControllerSlice.actions;
+export const { setIsLeftPanelExpanded, toggleIsNowPlaying } = appControllerSlice.actions;
 
 export default appControllerSlice.reducer;
