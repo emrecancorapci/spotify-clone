@@ -39,35 +39,44 @@
   },
   "ignorePatterns": ["dist", ".eslintrc"],
   "plugins": [
+    "@arthurgeron/react-usememo",
     "@typescript-eslint",
-    "react",
-    "prettier",
-    "tailwindcss",
-    "react-hooks",
-    "jsx-a11y",
-    "promise",
     "import",
-    "unicorn",
-    "testing-library",
+    "jsx-a11y",
+    "react",
+    "perfectionist", // Ready for flat config
+    "prettier",
+    "promise", // NOT ready for flat config
+    "react-hooks", // NOT ready for flat config (and won't be for a while)
+    "react-hook-form", // NOT ready for flat config
+    "react-refresh", // Ready for flat config
+    "react-perf", // NOT ready for flat config
+    "regexp",
     "simple-import-sort",
-    "react-refresh"
+    "tailwindcss",
+    "testing-library",
+    "unicorn"
   ],
   "extends": [
     "eslint:recommended",
     "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended-type-checked",
-    "plugin:react/recommended",
-    "plugin:react/jsx-runtime",
-    "plugin:testing-library/react",
-    "plugin:jsx-a11y/recommended",
-    "plugin:unicorn/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:security/recommended-legacy",
-    "plugin:promise/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
+    "plugin:jsx-a11y/recommended",
     "plugin:n/recommended",
+    "plugin:perfectionist/recommended-natural",
+    "plugin:promise/recommended", 
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
+    "plugin:react-hook-form/recommended",
+    "plugin:react-perf/recommended",
+    "plugin:regexp/recommended",
+    "plugin:security/recommended-legacy",
     "plugin:tailwindcss/recommended",
+    "plugin:testing-library/react",
+    "plugin:unicorn/recommended",
     "prettier"
   ],
   "rules": {
@@ -84,7 +93,7 @@
       }
     ],
     "n/no-missing-import": "off",
-    "no-unused-vars": "off",
+    "no-unused-vars": "warn",
     "no-unused-expressions": [
       "error",
       {
@@ -94,23 +103,17 @@
     
     "jsx-a11y/anchor-is-valid": "warn",
     "jsx-a11y/media-has-caption": "warn",
+    "perfectionist/sort-interfaces": "error",
+    "perfectionist/sort-imports": "off",
+    "perfectionist/sort-named-imports": "off",
+    "perfectionist/sort-named-exports": "off",
     "prettier/prettier": "warn",
-    "promise/catch-or-return": "error",
-    "promise/no-new-statics": "error",
-    "promise/no-return-wrap": "error",
-    "promise/param-names": "error",
-    "promise/avoid-new": "warn",
-    "promise/no-callback-in-promise": "warn",
-    "promise/no-nesting": "warn",
-    "promise/no-promise-in-callback": "warn",
-    "promise/no-return-in-finally": "warn",
-    "promise/valid-params": "warn",
     "promise/always-return": "off",
-    "promise/no-native": "off",
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+    "react-perf/jsx-no-new-function-as-prop": "off",
     "react-refresh/only-export-components": [
       "warn",
       { "allowConstantExport": true }
