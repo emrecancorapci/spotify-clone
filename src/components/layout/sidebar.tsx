@@ -5,6 +5,7 @@ import TooltipWrapper from '@/components/ui/tooltip-wrapper';
 
 import LibraryCard from './sidebar/library-card/library-card';
 import SidebarCard from './sidebar/sidebar-card';
+import SidebarTop from './sidebar/sidebar-top';
 
 export default function Sidebar(): JSX.Element {
   const iconProperties = { size: 26, strokeWidth: 2 };
@@ -26,32 +27,7 @@ export default function Sidebar(): JSX.Element {
 
   return (
     <div className="flex max-h-full w-full flex-col gap-2">
-      <SidebarCard>
-        <NavLink to="/">
-          {({ isActive }) => (
-            <TooltipWrapper side="right" tooltipContent="Home">
-              <HomeIcon
-                className={`transition-colors duration-300 ${
-                  isActive ? 'text-white' : 'text-s-gray-light hover:text-white'
-                }`}
-                {...iconProperties}
-              />
-            </TooltipWrapper>
-          )}
-        </NavLink>
-        <NavLink to="/search">
-          {({ isActive }) => (
-            <TooltipWrapper side="right" tooltipContent="Search">
-              <SearchIcon
-                className={`transition-colors duration-300 ${
-                  isActive ? 'text-white' : 'text-s-gray-light hover:text-white'
-                }`}
-                {...iconProperties}
-              />
-            </TooltipWrapper>
-          )}
-        </NavLink>
-      </SidebarCard>
+      <SidebarTop />
       <SidebarCard className="overflow-hidden">
         <div>
           <TooltipWrapper side="right" tooltipContent="Expand Your Library">
