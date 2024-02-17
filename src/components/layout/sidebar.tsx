@@ -1,5 +1,4 @@
-import { HomeIcon, LibraryBig, SearchIcon } from 'lucide-react';
-import { NavLink } from 'react-router-dom';
+import { LibraryBig } from 'lucide-react';
 
 import TooltipWrapper from '@/components/ui/tooltip-wrapper';
 import getIconSize from '@/lib/get-icon-size';
