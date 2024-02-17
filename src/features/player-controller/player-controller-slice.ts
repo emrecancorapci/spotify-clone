@@ -55,7 +55,10 @@ export const playerControllerSlice = createSlice({
       if (state.isMuted) {
         state.isMuted = false;
       }
-      state.volume = action.payload;
+
+      if (action.payload === undefined) return;
+
+      state.volume = action.payload / 100;
     },
     toggleMute: (state) => {
       state.isMuted = !state.isMuted;

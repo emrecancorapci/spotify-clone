@@ -11,15 +11,15 @@ import { useTypedSelector } from '@/store';
 export default function VolumeController(): JSX.Element {
   const { isMuted, volume } = useTypedSelector(selectOtherControlsStates);
   const dispatch = useDispatch();
+
   const defaultVolume = useMemo(() => [volume * 100], [volume]);
   const volumeValue = useMemo(() => [isMuted ? 0 : volume * 100], [isMuted, volume]);
 
   const onMuteButton = useCallback(() => dispatch(toggleMute()), [dispatch]);
-
   const onVolumeChange = useCallback(
     (value: number[]) => {
       if (value[0] === undefined) return;
-      dispatch(setVolume(value[0] / 100));
+      dispatch(setVolume(value[0]));
     },
     [dispatch],
   );
