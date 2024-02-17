@@ -39,12 +39,10 @@
   },
   "ignorePatterns": ["dist", ".eslintrc"],
   "plugins": [
-    "@arthurgeron/react-usememo",
     "@typescript-eslint",
     "import",
     "jsx-a11y",
     "react",
-    "perfectionist", // Ready for flat config
     "prettier",
     "promise", // NOT ready for flat config
     "react-hooks", // NOT ready for flat config (and won't be for a while)
@@ -65,7 +63,6 @@
     "plugin:import/typescript",
     "plugin:jsx-a11y/recommended",
     "plugin:n/recommended",
-    "plugin:perfectionist/recommended-natural",
     "plugin:promise/recommended", 
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
@@ -93,7 +90,7 @@
       }
     ],
     "n/no-missing-import": "off",
-    "no-unused-vars": "warn",
+    "no-unused-vars": "off",
     "no-unused-expressions": [
       "error",
       {
@@ -103,10 +100,6 @@
     
     "jsx-a11y/anchor-is-valid": "warn",
     "jsx-a11y/media-has-caption": "warn",
-    "perfectionist/sort-interfaces": "error",
-    "perfectionist/sort-imports": "off",
-    "perfectionist/sort-named-imports": "off",
-    "perfectionist/sort-named-exports": "off",
     "prettier/prettier": "warn",
     "promise/always-return": "off",
     "react/prop-types": "off",
