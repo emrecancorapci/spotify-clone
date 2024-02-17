@@ -6,6 +6,7 @@ import ControlButton from '@/components/ui/control-button';
 import { Slider } from '@/components/ui/slider';
 import { selectOtherControlsStates } from '@/features/player-controller/player-controller-selectors';
 import { setVolume, toggleMute } from '@/features/player-controller/player-controller-slice';
+import getIconSize from '@/lib/get-icon-size';
 import { useTypedSelector } from '@/store';
 
 export default function VolumeController(): JSX.Element {
@@ -24,7 +25,7 @@ export default function VolumeController(): JSX.Element {
     [dispatch],
   );
 
-  const iconProperty = { size: 18, strokeWidth: 2.5 };
+  const iconProperty = getIconSize();
 
   return (
     <div className="group flex w-32 flex-row items-center">

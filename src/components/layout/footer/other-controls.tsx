@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import ControlButton from '@/components/ui/control-button';
 import { toggleIsNowPlaying } from '@/features/app-controller/app-controller-slice';
+import getIconSize from '@/lib/get-icon-size';
 import { useAppDispatch } from '@/store';
 
 import VolumeController from './volume-controller';
@@ -17,7 +18,7 @@ export default function OtherControls(): JSX.Element {
   const openLyrics = () => navigateIfSameGoBack('/lyrics');
   const openQueue = () => navigateIfSameGoBack('/queue');
 
-  const iconProperty = { size: 18, strokeWidth: 2.5 };
+  const iconProperty = getIconSize();
 
   return (
     <div className="flex w-auto flex-row items-center">

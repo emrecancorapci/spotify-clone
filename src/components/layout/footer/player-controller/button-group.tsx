@@ -8,13 +8,14 @@ import {
   toggleRepeat,
   toggleShuffle,
 } from '@/features/player-controller/player-controller-slice';
+import getIconSize from '@/lib/get-icon-size';
 import { useAppDispatch, useTypedSelector } from '@/store';
 
 export default function ButtonGroup(): JSX.Element {
   const { isPlaying, isRepeat, isShuffle } = useTypedSelector(selectButtonGroupStates);
   const dispatch = useAppDispatch();
 
-  const iconProperty = { size: 18, strokeWidth: 2.5 };
+  const iconProperty = getIconSize();
 
   const onPlay = () => dispatch(togglePlay());
   const onShuffle = () => dispatch(toggleShuffle());

@@ -3,11 +3,12 @@ import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import TooltipWrapper from '@/components/ui/tooltip-wrapper';
+import getIconSize from '@/lib/get-icon-size';
 
 import SidebarCard from './sidebar-card';
 
 const SidebarTop = memo(() => {
-  const iconProperties = { size: 26, strokeWidth: 2 };
+  const iconProperties = getIconSize('l', true);
 
   return (
     <SidebarCard>

@@ -2,13 +2,14 @@ import { HomeIcon, LibraryBig, SearchIcon } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 import TooltipWrapper from '@/components/ui/tooltip-wrapper';
+import getIconSize from '@/lib/get-icon-size';
 
 import LibraryCard from './sidebar/library-card/library-card';
 import SidebarCard from './sidebar/sidebar-card';
 import SidebarTop from './sidebar/sidebar-top';
 
 export default function Sidebar(): JSX.Element {
-  const iconProperties = { size: 26, strokeWidth: 2 };
+  const iconProperties = getIconSize('l', true);
   const libraries = [
     { name: 'Liked Songs', songCount: 5123 },
     { name: 'Heavy Metal', songCount: 1643 },
