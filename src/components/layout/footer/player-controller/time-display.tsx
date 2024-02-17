@@ -1,6 +1,12 @@
 import { memo } from 'react';
 
-const TimeDisplay = memo(({ seconds }: { seconds: number }) => {
+import { useTypedSelector } from '@/store';
+
+const TimeDisplay = memo(({ type }: { type: 'current' | 'duration' }) => {
+  const seconds = useTypedSelector((state) =>
+    type === 'current' ? state.playerController.currentTime : state.playerController.duration,
+  );
+
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;
 
