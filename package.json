@@ -1,5 +1,5 @@
 {
-  "name": "tauri-spotify-clone",
+  "name": "spotify-clone",
   "repository": {
     "type": "git",
     "url": "https://github.com/emrecancorapci/tauri-spotify-clone.git"
@@ -11,9 +11,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "dev:tauri": "tauri dev",
-    "build:tauri": "tauri build"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@radix-ui/react-slider": "^1.1.2",
