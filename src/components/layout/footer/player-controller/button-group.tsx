@@ -37,7 +37,7 @@ export default function ButtonGroup(): JSX.Element {
         className="bg-s-gray-lightest text-black transition-transform duration-100 hover:scale-105 active:scale-95"
         onClick={onPlay}
       >
-        {isPlaying ? <PauseIcon {...iconProperty} /> : <PlayIcon className="relative left-[1px]" {...iconProperty} />}
+        {isPlaying ? <PauseIcon {...iconProperty} /> : <PlayIcon className="relative left-px" {...iconProperty} />}
       </ControlButton>
 
       <ControlButton onClick={onNext} type="button">

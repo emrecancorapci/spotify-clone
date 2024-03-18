@@ -1,4 +1,3 @@
-/* eslint-disable @arthurgeron/react-usememo/require-usememo */
 import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
 
 import Layout from './layout';

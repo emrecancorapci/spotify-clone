@@ -1,8 +1,8 @@
 {
   "env": {
     "browser": true,
-    "es2022": true,
-    "node": true
+    "node": true,
+    "es2024": true
   },
   "settings": {
     "import/parsers": {
@@ -19,17 +19,6 @@
       "version": "detect"
     }
   },
-  "overrides": [
-    {
-      "files": [
-        "**/*.test.ts",
-        "**/*.test.tsx"
-      ],
-      "env": {
-        "jest": true
-      }
-    }
-  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -37,7 +26,6 @@
     "project": ["./tsconfig.json", "./tsconfig.node.json"],
     "tsconfigRootDir": "./"
   },
-  "ignorePatterns": ["dist", ".eslintrc"],
   "plugins": [
     "@typescript-eslint",
     "import",
@@ -52,7 +40,6 @@
     "regexp",
     "simple-import-sort",
     "tailwindcss",
-    "testing-library",
     "unicorn"
   ],
   "extends": [
@@ -72,7 +59,6 @@
     "plugin:regexp/recommended",
     "plugin:security/recommended-legacy",
     "plugin:tailwindcss/recommended",
-    "plugin:testing-library/react",
     "plugin:unicorn/recommended",
     "prettier"
   ],

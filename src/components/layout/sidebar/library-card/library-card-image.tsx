@@ -6,8 +6,8 @@ export default function LibraryCardImage({ image }: { image?: string | undefined
   }, [image]);
 
   return image === undefined ? (
-    <div className="h-12 w-12 shrink-0 rounded bg-s-gray" />
+    <div className="size-12 shrink-0 rounded bg-s-gray" />
   ) : (
-    <div className="h-12 w-12 shrink-0 rounded bg-s-gray" style={style} />
+    <div className="size-12 shrink-0 rounded bg-s-gray" style={style} />
   );
 }
