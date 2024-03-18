@@ -1,5 +1,6 @@
 import { LibraryBig } from 'lucide-react';
 
+import { ScrollArea } from '@/components/ui/scroll-area';
 import TooltipWrapper from '@/components/ui/tooltip-wrapper';
 import getIconSize from '@/lib/get-icon-size';
 
@@ -37,11 +38,11 @@ export default function Sidebar(): JSX.Element {
             />
           </TooltipWrapper>
         </div>
-        <div className="flex flex-col overflow-y-scroll ps-4">
+        <ScrollArea className="flex flex-col overflow-y-scroll ps-4">
           {libraries.map((library) => (
             <LibraryCard isPinned={false} key={library.name} library={library} />
           ))}
-        </div>
+        </ScrollArea>
       </SidebarCard>
     </div>
   );
