@@ -5,13 +5,11 @@ import { NavLink } from 'react-router-dom';
 import TooltipWrapper from '@/components/ui/tooltip-wrapper';
 import getIconSize from '@/lib/get-icon-size';
 
-import SidebarCard from './sidebar-card';
-
 const SidebarTop = memo(() => {
   const iconProperties = getIconSize('l', true);
 
   return (
-    <SidebarCard>
+    <div className="flex w-full flex-col items-center gap-6 rounded-lg bg-s-gray-darkest py-4 text-white">
       <NavLink to="/">
         {({ isActive }) => (
           <TooltipWrapper side="right" tooltipContent="Home">
@@ -36,7 +34,7 @@ const SidebarTop = memo(() => {
           </TooltipWrapper>
         )}
       </NavLink>
-    </SidebarCard>
+    </div>
   );
 });
 
