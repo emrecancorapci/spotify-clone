@@ -16,7 +16,7 @@ export default function LibraryCardContent({
       <div className="text-base leading-none">{name}</div>
       <div className="flex flex-row items-end gap-2 py-1">
         {isPinned ? <PinIcon className="text-s-green" {...getIconSize('s', true)} /> : undefined}{' '}
-        <p className="text-base leading-none text-s-gray-light">{songCount} songs</p>
+        <p className="text-base leading-none text-s-gray-lighter">{songCount} songs</p>
       </div>
     </div>
   );

@@ -30,7 +30,7 @@ export default function VolumeController(): JSX.Element {
   return (
     <div className="group flex w-32 flex-row items-center">
       <ControlButton
-        className="text-s-gray-light group-hover:text-s-gray-lightest"
+        className="text-s-gray-lighter group-hover:text-s-gray-lightest"
         onClick={onMuteButton}
         tooltipText="Mute"
       >

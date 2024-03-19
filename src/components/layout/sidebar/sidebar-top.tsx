@@ -15,7 +15,7 @@ const SidebarTop = memo(() => {
           <TooltipWrapper side="right" tooltipContent="Home">
             <HomeIcon
               className={`transition-colors duration-300 ${
-                isActive ? 'text-white' : 'text-s-gray-light hover:text-white'
+                isActive ? 'text-white' : 'text-s-gray-lighter hover:text-white'
               }`}
               {...iconProperties}
             />
@@ -27,7 +27,7 @@ const SidebarTop = memo(() => {
           <TooltipWrapper side="right" tooltipContent="Search">
             <SearchIcon
               className={`transition-colors duration-300 ${
-                isActive ? 'text-white' : 'text-s-gray-light hover:text-white'
+                isActive ? 'text-white' : 'text-s-gray-lighter hover:text-white'
               }`}
               {...iconProperties}
             />

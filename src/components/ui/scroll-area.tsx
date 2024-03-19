@@ -29,7 +29,7 @@ const ScrollBar = forwardRef<
     )}
     {...properties}
   >
-    <ScrollAreaThumb className="relative flex-1 rounded-full bg-s-gray-light/50 hover:bg-s-gray-lighter/50 dark:bg-zinc-800" />
+    <ScrollAreaThumb className="relative flex-1 rounded-full bg-s-gray-lighter/50 hover:bg-s-gray-light/50 dark:bg-zinc-800" />
   </ScrollAreaScrollbar>
 ));
 ScrollBar.displayName = ScrollAreaScrollbar.displayName;

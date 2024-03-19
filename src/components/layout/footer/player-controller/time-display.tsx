@@ -14,7 +14,7 @@ const TimeDisplay = memo(({ type }: { type: 'current' | 'duration' }) => {
   const formattedSeconds = String(Math.round(remainingSeconds)).padStart(2, '0');
 
   return (
-    <p className="text-xs text-s-gray-light">
+    <p className="text-xs text-s-gray-lighter">
       {formattedMinutes}:{formattedSeconds}
     </p>
   );

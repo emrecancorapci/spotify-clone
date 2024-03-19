@@ -7,7 +7,7 @@ export default function PlayerController(): JSX.Element {
     <div className="flex w-full max-w-[35vw] flex-col items-center gap-1">
       <ButtonGroup />
 
-      <div className="flex w-full flex-row items-center gap-2 text-s-gray-lighter">
+      <div className="flex w-full flex-row items-center gap-2 text-s-gray-light">
         <TimeDisplay type="current" />
         <ControllerSlider />
         <TimeDisplay type="duration" />

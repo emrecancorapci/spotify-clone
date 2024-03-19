@@ -21,13 +21,13 @@ export default function TrackDisplayer() {
       <img alt={`${currentSong.album}'s cover`} className="size-14 rounded-md" src={currentSong.albumCover} />
       <div className="flex flex-col justify-center px-2">
         <h3 className="text-sm font-normal text-s-white">{currentSong.name}</h3>
-        <h4 className="text-xs font-normal text-s-gray-light">{currentSong.artist}</h4>
+        <h4 className="text-xs font-normal text-s-gray-lighter">{currentSong.artist}</h4>
       </div>
       <Tooltip>
         <TooltipTrigger>
           <HeartIcon
             className={`size-4 cursor-default hover:cursor-pointer ${
-              isLiked ? 'text-s-green hover:text-s-green-light' : 'text-s-gray-light hover:text-s-gray-lighter'
+              isLiked ? 'text-s-green hover:text-s-green-light' : 'text-s-gray-lighter hover:text-s-gray-light'
             } ${effects ? 'animate-wiggle' : ''}`}
             onAnimationEnd={() => setEffects(false)}
             onClick={() => {

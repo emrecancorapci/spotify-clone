@@ -29,7 +29,7 @@ export default function SidebarLibraryExplorer() {
       <div>
         <TooltipWrapper side="right" tooltipContent="Expand Your Library">
           <LibraryBig
-            className="text-s-gray-light transition-colors duration-300 hover:text-white"
+            className="text-s-gray-lighter transition-colors duration-300 hover:text-white"
             {...iconProperties}
           />
         </TooltipWrapper>
