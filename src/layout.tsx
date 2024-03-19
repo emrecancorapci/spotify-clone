@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import Footer from '@/components/layout/footer';
@@ -8,6 +9,22 @@ import { selectLayoutStates } from './features/app-controller/app-controller-sel
 import { useTypedSelector } from './store';
 
 export default function Layout() {
+  const [mainWidth, setMainWidth] = useState(0);
+  const mainPanelReference = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const current = mainPanelReference.current;
+    if (current == undefined) return;
+
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        setMainWidth(entry.contentRect.width);
+      }
+    });
+
+    observer.observe(current);
+  }, [mainPanelReference.current?.clientWidth]);
+
   const { isNowPlayingVisible } = useTypedSelector(selectLayoutStates);
 
   return (
@@ -24,13 +41,15 @@ export default function Layout() {
         </ResizablePanel>
         <ResizableHandle className="-left-1" />
         <ResizablePanel
-          className="flex w-full flex-1 overflow-hidden text-clip rounded-lg"
+          className="grid size-full overflow-hidden text-clip rounded-lg"
           defaultSize={90}
           maxSize={90}
           minSize={30}
           order={2}
         >
-          <Outlet />
+          <div className="size-full *:size-full" ref={mainPanelReference}>
+            <Outlet context={mainWidth} />
+          </div>
         </ResizablePanel>
         <ResizableHandle className={`-right-1 ${isNowPlayingVisible ? '' : 'hidden'}`} />
         <ResizablePanel
