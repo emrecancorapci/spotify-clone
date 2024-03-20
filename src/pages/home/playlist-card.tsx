@@ -16,7 +16,7 @@ export default function PlaylistCard({ image, title, description }: Properties) 
   return (
     <div className="flex flex-col rounded-lg bg-transparent p-3 hover:bg-s-gray/20">
       <img
-        className="w-full rounded-lg object-cover"
+        className="w-full rounded-lg object-cover shadow-lg shadow-black/50"
         src={image ?? 'https://via.placeholder.com/256'}
         height={256}
         width={256}

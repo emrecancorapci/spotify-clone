@@ -1,6 +1,6 @@
 import { useOutletContext } from 'react-router-dom';
 
-import PlaylistCard from './home/playlist-card';
+import PlaylistsBlock from './home/playlists-block';
 
 const Playlists = [
   {
@@ -55,25 +55,14 @@ const Playlists = [
   },
 ];
 
-export default function Home() {
+export default function Home(): JSX.Element {
   const width = useOutletContext<number>();
-  const cardSizePx = 180;
+  const cardSizePx = 200;
 
   const columnsNumber = Math.floor(width / cardSizePx);
-
-  // eslint-disable-next-line react-perf/jsx-no-new-object-as-prop
-  const gridColsStyle: React.CSSProperties = {
-    gridTemplateColumns: `repeat(${columnsNumber}, minmax(0, 1fr))`,
-  };
-
   return (
-    <div className="flex w-full flex-col bg-s-gray-darkest p-2">
-      <p className="text-white">{columnsNumber}</p>
-      <div style={gridColsStyle} className="grid gap-2">
-        {Playlists.slice(0, columnsNumber).map((playlist, index) => (
-          <PlaylistCard key={index} {...playlist} />
-        ))}
-      </div>
+    <div className="flex w-full flex-col bg-s-gray-darkest p-3">
+      <PlaylistsBlock title="Home" playlists={Playlists} columnCount={columnsNumber} />
     </div>
   );
 }
