@@ -10,11 +10,12 @@ import { useTypedSelector } from './store';
 
 export default function Layout() {
   const [mainWidth, setMainWidth] = useState(0);
-  const mainPanelReference = useRef<HTMLDivElement>(null);
+  const mainReference = useRef<HTMLDivElement>(null);
+  const sidebarReference = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const current = mainPanelReference.current;
-    if (current == undefined) return;
+    const mainCurrent = mainReference.current;
+    if (mainCurrent == undefined) return;
 
     const observer = new ResizeObserver((entries) => {
       for (const entry of entries) {
@@ -22,8 +23,8 @@ export default function Layout() {
       }
     });
 
-    observer.observe(current);
-  }, [mainPanelReference.current?.clientWidth]);
+    observer.observe(mainCurrent);
+  }, [mainReference.current?.clientWidth]);
 
   const { isNowPlayingVisible } = useTypedSelector(selectLayoutStates);
 
@@ -37,7 +38,7 @@ export default function Layout() {
           minSize={3}
           order={1}
         >
-          <Sidebar />
+          <Sidebar ref={sidebarReference} />
         </ResizablePanel>
         <ResizableHandle className="-left-1" />
         <ResizablePanel
@@ -47,7 +48,7 @@ export default function Layout() {
           minSize={30}
           order={2}
         >
-          <div className="size-full *:size-full" ref={mainPanelReference}>
+          <div className="size-full *:size-full" ref={mainReference}>
             <Outlet context={mainWidth} />
           </div>
         </ResizablePanel>
