@@ -32,18 +32,6 @@ export default function AudioPlayer(): JSX.Element {
     [dispatch, audioSource, isPlaying],
   );
 
-  useEffect(
-    function setPlay() {
-      if (audioReferece.current == undefined) return;
-
-      const audio = audioReferece.current;
-
-      if (isPlaying) void audio.play();
-      else void audio.pause();
-    },
-    [isPlaying],
-  );
-
   return (
     <audio
       id="audio-player"
