@@ -33,24 +33,6 @@ export default function AudioPlayer(): JSX.Element {
   );
 
   useEffect(
-    function setVolume() {
-      if (audioReferece.current == undefined) return;
-
-      audioReferece.current.volume = volume;
-    },
-    [volume],
-  );
-
-  useEffect(
-    function setMuted() {
-      if (audioReferece.current == undefined) return;
-
-      audioReferece.current.muted = isMuted;
-    },
-    [isMuted],
-  );
-
-  useEffect(
     function setPlay() {
       if (audioReferece.current == undefined) return;
 
@@ -73,6 +55,7 @@ export default function AudioPlayer(): JSX.Element {
 
   return (
     <audio
+      id="audio-player"
       hidden
       onLoadedMetadata={() => {
         dispatch(setDuration(audioReferece.current?.duration ?? 0));

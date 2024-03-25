@@ -1,37 +1,43 @@
 import { Volume1Icon, Volume2Icon, VolumeIcon, VolumeXIcon } from 'lucide-react';
-import { useCallback, useMemo } from 'react';
-import { useDispatch } from 'react-redux';
+import { useCallback, useMemo, useState } from 'react';
 
 import ControlButton from '@/components/ui/control-button';
 import { Slider } from '@/components/ui/slider';
-import { selectOtherControlsStates } from '@/features/player-controller/player-controller-selectors';
-import { setVolume, toggleMute } from '@/features/player-controller/player-controller-slice';
 import getIconSize from '@/lib/get-icon-size';
-import { useTypedSelector } from '@/store';
 
 export default function VolumeController(): JSX.Element {
-  const { isMuted, volume } = useTypedSelector(selectOtherControlsStates);
-  const dispatch = useDispatch();
+  const iconProperty = getIconSize();
+
+  const [volume, setVolume] = useState<number>(0.5);
+  const [isMuted, setIsMuted] = useState<boolean>(false);
+
+  const audioPlayer = document.querySelector<HTMLAudioElement>('#audio-player');
 
   const defaultVolume = useMemo(() => [volume * 100], [volume]);
   const volumeValue = useMemo(() => [isMuted ? 0 : volume * 100], [isMuted, volume]);
 
-  const onMuteButton = useCallback(() => dispatch(toggleMute()), [dispatch]);
-  const onVolumeChange = useCallback(
+  const onValueChange = useCallback(
     (value: number[]) => {
-      if (value[0] === undefined) return;
-      dispatch(setVolume(value[0]));
+      if (value[0] === undefined || !audioPlayer) return;
+
+      setVolume(value[0] / 100);
+      audioPlayer.volume = value[0] / 100;
     },
-    [dispatch],
+    [audioPlayer],
   );
 
-  const iconProperty = getIconSize();
+  const onMuteClick = useCallback(() => {
+    if (!audioPlayer) return;
+
+    setIsMuted((previous) => !previous);
+    audioPlayer.muted = !isMuted;
+  }, [audioPlayer, isMuted]);
 
   return (
     <div className="group flex w-32 flex-row items-center">
       <ControlButton
         className="text-s-gray-lighter group-hover:text-s-gray-lightest"
-        onClick={onMuteButton}
+        onClick={onMuteClick}
         tooltipText="Mute"
       >
         {isMuted || volume === 0 ? (
@@ -49,7 +55,7 @@ export default function VolumeController(): JSX.Element {
         defaultValue={defaultVolume}
         max={100}
         min={0}
-        onValueChange={onVolumeChange}
+        onValueChange={onValueChange}
         step={1}
         value={volumeValue}
       />
