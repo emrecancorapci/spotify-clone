@@ -8,7 +8,7 @@ import { useTypedSelector } from '@/store';
 
 export default function AudioPlayer(): JSX.Element {
   const dispatch = useDispatch();
-  const { audioSource, currentTime, isMuted, isPlaying, volume } = useTypedSelector(selectAudioPlayerStates);
+  const { audioSource, isPlaying } = useTypedSelector(selectAudioPlayerStates);
 
   const audioReferece = useRef<HTMLAudioElement>(null);
   const source = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
@@ -42,15 +42,6 @@ export default function AudioPlayer(): JSX.Element {
       else void audio.pause();
     },
     [isPlaying],
-  );
-
-  useEffect(
-    function setCurrentTime() {
-      if (audioReferece.current == undefined || audioReferece.current.currentTime === currentTime) return;
-
-      audioReferece.current.currentTime = currentTime;
-    },
-    [currentTime],
   );
 
   return (
