@@ -12,11 +12,11 @@ export default function OtherControls(): JSX.Element {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const navigateIfSameGoBack = (path: string) => (location.pathname === path ? navigate(-1) : navigate(path));
+  const ifSameGoBackElseNavigate = (path: string) => (location.pathname === path ? navigate(-1) : navigate(path));
 
   const openPlayingView = () => dispatch(toggleIsNowPlaying());
-  const openLyrics = () => navigateIfSameGoBack('/lyrics');
-  const openQueue = () => navigateIfSameGoBack('/queue');
+  const openLyrics = () => ifSameGoBackElseNavigate('/lyrics');
+  const openQueue = () => ifSameGoBackElseNavigate('/queue');
 
   const iconProperty = getIconSize();
 

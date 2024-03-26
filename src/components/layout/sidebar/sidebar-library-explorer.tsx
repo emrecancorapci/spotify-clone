@@ -34,7 +34,7 @@ export default function SidebarLibraryExplorer() {
           />
         </TooltipWrapper>
       </div>
-      <ScrollArea className="flex scroll-pt-2 flex-col overflow-y-scroll ps-4">
+      <ScrollArea className="flex scroll-pt-2 flex-col overflow-hidden">
         {libraries.map((library) => (
           <LibraryCard isPinned={false} key={library.name} library={library} />
         ))}
