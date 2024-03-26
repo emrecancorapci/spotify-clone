@@ -16,7 +16,7 @@ const getGridStyle = (columnCount: number) => {
   };
 };
 
-export default function PlaylistsBlock({ title, playlists, columnCount }: Properties) {
+export default function PlaylistBundle({ title, playlists, columnCount }: Properties) {
   return (
     <div>
       <div className="flex w-full justify-between px-3.5">

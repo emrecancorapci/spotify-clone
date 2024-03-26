@@ -1,6 +1,6 @@
 import { useOutletContext } from 'react-router-dom';
 
-import PlaylistsBlock from './home/playlists-block';
+import PlaylistBundle from './playlist-bundle';
 
 const Playlists = [
   {
@@ -62,8 +62,8 @@ export default function Home(): JSX.Element {
   const columnsNumber = Math.floor(width / cardSizePx);
   return (
     <div className="flex flex-col px-1">
-      <PlaylistsBlock title="First Playlist Bundle" playlists={Playlists} columnCount={columnsNumber} />
-      <PlaylistsBlock title="Second Playlist Bundle" playlists={Playlists} columnCount={columnsNumber} />
+      <PlaylistBundle title="First Playlist Bundle" playlists={Playlists} columnCount={columnsNumber} />
+      <PlaylistBundle title="Second Playlist Bundle" playlists={Playlists} columnCount={columnsNumber} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
 
 import Layout from './layout';
-import Home from './pages/home';
+import Home from './pages/home/home';
 import Lyrics from './pages/lyrics';
 import Queue from './pages/queue';
 import Search from './pages/search';

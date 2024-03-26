@@ -25,7 +25,7 @@ function getButtonPositionStyle(imageSize: number): React.CSSProperties {
   };
 }
 
-export default function PlaylistCard({ image, title, description }: Properties) {
+export default function PlaylistCard({ image, title, description }: Properties): React.ReactNode {
   const [imageSize, setImageSize] = useState<number>(0);
 
   const imageReference = useCallback(function sizeChangeHandler(node: HTMLImageElement) {
