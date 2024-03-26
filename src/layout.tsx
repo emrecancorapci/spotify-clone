@@ -5,6 +5,7 @@ import Footer from '@/components/layout/footer';
 import Sidebar from '@/components/layout/sidebar';
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable';
 
+import Header from './components/layout/main/header';
 import { selectLayoutStates } from './features/app-controller/app-controller-selectors';
 import { useTypedSelector } from './store';
 
@@ -48,7 +49,8 @@ export default function Layout() {
           minSize={30}
           order={2}
         >
-          <div className="size-full *:size-full" ref={mainReference}>
+          <div className="flex size-full flex-col bg-s-gray-darkest px-2 py-4" ref={mainReference}>
+            <Header />
             <Outlet context={mainWidth} />
           </div>
         </ResizablePanel>

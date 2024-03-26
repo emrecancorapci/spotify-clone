@@ -61,8 +61,9 @@ export default function Home(): JSX.Element {
 
   const columnsNumber = Math.floor(width / cardSizePx);
   return (
-    <div className="flex w-full flex-col bg-s-gray-darkest p-3">
-      <PlaylistsBlock title="Home" playlists={Playlists} columnCount={columnsNumber} />
+    <div className="flex flex-col px-1">
+      <PlaylistsBlock title="First Playlist Bundle" playlists={Playlists} columnCount={columnsNumber} />
+      <PlaylistsBlock title="Second Playlist Bundle" playlists={Playlists} columnCount={columnsNumber} />
     </div>
   );
 }
