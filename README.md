@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a Spotify clone application built with React and Tauri. It aims to be a desktop application that allows users to search for songs, artists, and albums. Users will also be able to play songs, pause songs, and skip songs.
+This is a Spotify clone application built with React. It aims to be a desktop application that allows users to search for songs, artists, and albums. Users will also be able to play songs, pause songs, and skip songs.
 
 ## Getting Started
 
@@ -15,13 +15,13 @@ Prerequisities can be found in [here](docs/PREREQUISITES.md)
 1. Clone the repo to your local machine using a terminal
 
    ```bash
-   git clone https://github.com/emrecancorapci/tauri-react-typescript-tailwind
+   git clone https://github.com/emrecancorapci/spotify-clone
    ```
 
 2. Change directory
 
    ```bash
-   cd tauri-react-typescript-tailwind
+   cd spotify-clone
    ```
 
 3. Install NPM packages
@@ -30,25 +30,11 @@ Prerequisities can be found in [here](docs/PREREQUISITES.md)
    pnpm install
    ```
 
-## Usage
-
-### Development
-
-- Run the web application
+4. Run the web application
 
    ```bash
    pnpm dev
    ```
-
-- Run the desktop application
-
-   ```bash
-   pnpm dev:tauri
-   ```
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ## Roadmap
 
@@ -60,6 +46,7 @@ This project is licensed under the [MIT License](LICENSE).
 - [x] Tooltip implementation
 - [x] Audio player logic with redux
 - [x] Resizable layout
+- [x] Basics for responsiveness
 - [ ] Expandable sidebar
 - [ ] Playlist page
 - [ ] MediaStream API implementation
@@ -98,7 +85,6 @@ This project is licensed under the [MIT License](LICENSE).
 ### Extra Features
 
 - [ ] Audio visualizer (dynamic player background based on audio frequency)
-- [ ] Offline mode
 - [ ] Lyrics
 - [ ] Custom themes
 - [ ] Light mode
