@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { selectAudioPlayerStates } from '@/features/player-controller/player-controller-selectors';
-import { setCurrentTime, setDuration, togglePlay } from '@/features/player-controller/player-controller-slice';
+import { setDuration, togglePlay } from '@/features/player-controller/player-controller-slice';
 import { useTypedSelector } from '@/store';
 
 export default function AudioPlayer(): JSX.Element {
@@ -38,10 +38,6 @@ export default function AudioPlayer(): JSX.Element {
       hidden
       onLoadedMetadata={() => {
         dispatch(setDuration(audioReferece.current?.duration ?? 0));
-
-        setInterval(() => {
-          dispatch(setCurrentTime(audioReferece.current?.currentTime ?? 0));
-        }, 1000);
       }}
       preload="auto"
       ref={audioReferece}

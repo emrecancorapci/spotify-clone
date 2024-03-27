@@ -20,7 +20,7 @@ export default function PlaylistBundle({ title, playlists, columnCount }: Proper
   return (
     <div>
       <div className="flex w-full justify-between px-3.5">
-        <button type="button" className="py-2 text-2xl font-bold text-white">
+        <button type="button" className="py-2 text-2xl font-bold text-white no-underline hover:underline">
           {title}
         </button>
         <button
