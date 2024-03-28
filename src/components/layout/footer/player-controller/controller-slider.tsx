@@ -1,31 +1,33 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { Slider } from '@/components/ui/slider';
-import { selectProgressBarStates } from '@/features/player-controller/player-controller-selectors';
-import { useTypedSelector } from '@/store';
 
 const defaultValue = [0];
 
 export default function ControllerSlider(): JSX.Element {
   const [isDragging, setIsDragging] = useState<boolean>(false);
-  const { duration } = useTypedSelector(selectProgressBarStates);
+  const [currentTime, setCurrentTime] = useState<number[]>([0]);
 
   const audioPlayer = document.querySelector<HTMLAudioElement>('#audio-player');
   const sliderReference = useRef<HTMLSpanElement>(null);
 
-  const onSliderCommit = (value: number[]) => {
-    if (value[0] === undefined || !audioPlayer) return;
+  const duration = audioPlayer?.duration ?? 0;
 
-    audioPlayer.currentTime = value[0];
-  };
+  const onSliderCommit = useCallback(
+    (value: number[]) => {
+      if (value[0] === undefined || !audioPlayer) return;
 
-  const updateSlider = useCallback(() => {
-    if (!audioPlayer || isDragging || !sliderReference.current) return;
+      audioPlayer.currentTime = value[0];
+      setCurrentTime(value);
+    },
+    [audioPlayer],
+  );
 
-    sliderReference.current.style.setProperty('--value', `${(audioPlayer.currentTime / duration) * 100}%`);
-  }, [audioPlayer, duration, isDragging]);
+  useEffect(() => {
+    if (!audioPlayer || isDragging) return;
 
-  audioPlayer?.addEventListener('timeupdate', updateSlider);
+    setCurrentTime([audioPlayer.currentTime]);
+  }, [isDragging, audioPlayer, audioPlayer?.currentTime, setCurrentTime]);
 
   return (
     <Slider
@@ -33,10 +35,12 @@ export default function ControllerSlider(): JSX.Element {
       defaultValue={defaultValue}
       max={duration}
       min={0}
+      onValueChange={(value) => setCurrentTime(value)}
       onValueCommit={(value) => onSliderCommit(value)}
       onPointerDown={() => setIsDragging(true)}
       onPointerUp={() => setIsDragging(false)}
       step={1}
+      value={currentTime}
     />
   );
 }

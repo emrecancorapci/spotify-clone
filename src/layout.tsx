@@ -6,8 +6,7 @@ import Sidebar from '@/components/layout/sidebar';
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable';
 
 import Header from './components/layout/main/header';
-import { selectLayoutStates } from './features/app-controller/app-controller-selectors';
-import { useTypedSelector } from './store';
+import { useAppControllerStore } from './features/appControllerStore';
 
 export default function Layout() {
   const [mainWidth, setMainWidth] = useState(0);
@@ -27,7 +26,7 @@ export default function Layout() {
     observer.observe(mainCurrent);
   }, [mainReference.current?.clientWidth]);
 
-  const { isNowPlayingVisible } = useTypedSelector(selectLayoutStates);
+  const { isDetailsOpen } = useAppControllerStore((state) => ({ isDetailsOpen: state.isDetailsOpen }));
 
   return (
     <div className="flex h-screen w-full flex-col gap-2 bg-black p-2">
@@ -49,15 +48,15 @@ export default function Layout() {
           minSize={30}
           order={2}
         >
-          <div className="flex size-full flex-col bg-s-gray-darkest px-2 py-4" ref={mainReference}>
+          <div className="flex size-full flex-col bg-s-gray p-2" ref={mainReference}>
             <Header />
             <Outlet context={mainWidth} />
           </div>
         </ResizablePanel>
-        <ResizableHandle className={`-right-1 ${isNowPlayingVisible ? '' : 'hidden'}`} />
+        <ResizableHandle className={`-right-1 ${isDetailsOpen ? '' : 'hidden'}`} />
         <ResizablePanel
           className={`${
-            isNowPlayingVisible ? 'flex' : 'hidden'
+            isDetailsOpen ? 'flex' : 'hidden'
           } min-w-[280px] items-start justify-center overflow-hidden text-clip rounded-lg bg-s-gray-darkest p-2 text-white`}
           defaultSize={12}
           maxSize={22}

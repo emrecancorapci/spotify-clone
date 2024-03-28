@@ -3,13 +3,17 @@ import { useCallback, useState } from 'react';
 
 import ControlButton from '@/components/ui/control-button';
 import ControlSwitch from '@/components/ui/control-switch';
-import { selectButtonGroupStates } from '@/features/player-controller/player-controller-selectors';
-import { setAudioSource, toggleRepeat, toggleShuffle } from '@/features/player-controller/player-controller-slice';
-import { useAppDispatch, useTypedSelector } from '@/store';
+import { usePlayerControllerStore } from '@/features/playerControllerStore';
 
 export default function ButtonGroup(): JSX.Element {
+  const { isRepeat, isShuffle, toggleRepeat, toggleShuffle } = usePlayerControllerStore((state) => ({
+    isRepeat: state.isRepeat,
+    isShuffle: state.isShuffle,
+    toggleRepeat: state.toggleRepeat,
+    toggleShuffle: state.toggleShuffle,
+  }));
   const [isPaused, setIsPaused] = useState<boolean>(true);
-  const { isRepeat, isShuffle } = useTypedSelector(selectButtonGroupStates);
+
   const audioPlayer = document.querySelector<HTMLAudioElement>('#audio-player');
 
   const onClickPlay = useCallback(() => {
@@ -21,12 +25,22 @@ export default function ButtonGroup(): JSX.Element {
     setIsPaused(audioPlayer.paused);
   }, [audioPlayer]);
 
-  const dispatch = useAppDispatch();
+  const onShuffle = useCallback(toggleShuffle, [toggleShuffle]);
+  const onRepeat = useCallback(toggleRepeat, [toggleRepeat]);
+  const onPrevious = useCallback(() => {
+    if (!audioPlayer) return;
 
-  const onShuffle = () => dispatch(toggleShuffle());
-  const onRepeat = () => dispatch(toggleRepeat());
-  const onPrevious = () => dispatch(setAudioSource('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3'));
-  const onNext = () => dispatch(setAudioSource('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3'));
+    audioPlayer.src = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3';
+    audioPlayer.load();
+    void audioPlayer.play();
+  }, [audioPlayer]);
+  const onNext = useCallback(() => {
+    if (!audioPlayer) return;
+
+    audioPlayer.src = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3';
+    audioPlayer.load();
+    void audioPlayer.play();
+  }, [audioPlayer]);
 
   return (
     <div className="flex flex-row justify-center gap-3 pb-1">
