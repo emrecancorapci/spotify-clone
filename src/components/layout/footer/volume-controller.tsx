@@ -3,11 +3,8 @@ import { useCallback, useMemo, useState } from 'react';
 
 import ControlButton from '@/components/ui/control-button';
 import { Slider } from '@/components/ui/slider';
-import getIconSize from '@/lib/get-icon-size';
 
 export default function VolumeController(): JSX.Element {
-  const iconProperty = getIconSize();
-
   const [volume, setVolume] = useState<number>(0.5);
   const [isMuted, setIsMuted] = useState<boolean>(false);
 
@@ -36,20 +33,14 @@ export default function VolumeController(): JSX.Element {
   return (
     <div className="group flex w-32 flex-row items-center">
       <ControlButton
+        Icon={
+          isMuted || volume === 0 ? VolumeXIcon : volume < 0.3 ? VolumeIcon : volume < 0.6 ? Volume1Icon : Volume2Icon
+        }
         className="text-s-gray-lighter group-hover:text-s-gray-lightest"
         onClick={onMuteClick}
         tooltipText="Mute"
-      >
-        {isMuted || volume === 0 ? (
-          <VolumeXIcon {...iconProperty} />
-        ) : volume > 0 && volume < 0.3 ? (
-          <VolumeIcon {...iconProperty} />
-        ) : volume > 0.3 && volume < 0.6 ? (
-          <Volume1Icon {...iconProperty} />
-        ) : (
-          <Volume2Icon {...iconProperty} />
-        )}
-      </ControlButton>
+      />
+
       <Slider
         className="col-span-3"
         defaultValue={defaultVolume}

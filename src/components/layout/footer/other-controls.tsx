@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 import ControlButton from '@/components/ui/control-button';
 import { toggleIsNowPlaying } from '@/features/app-controller/app-controller-slice';
-import getIconSize from '@/lib/get-icon-size';
 import { useAppDispatch } from '@/store';
 
 import VolumeController from './volume-controller';
@@ -18,22 +17,12 @@ export default function OtherControls(): JSX.Element {
   const openLyrics = () => ifSameGoBackElseNavigate('/lyrics');
   const openQueue = () => ifSameGoBackElseNavigate('/queue');
 
-  const iconProperty = getIconSize();
-
   return (
     <div className="flex w-auto flex-row items-center">
-      <ControlButton onClick={openPlayingView} tooltipText="Now Playing View" type="button">
-        <PlaySquareIcon {...iconProperty} />
-      </ControlButton>
-      <ControlButton onClick={openLyrics} tooltipText="Lyrics" type="button">
-        <Mic2Icon {...iconProperty} />
-      </ControlButton>
-      <ControlButton onClick={openQueue} tooltipText="Queue" type="button">
-        <ListMusicIcon {...iconProperty} />
-      </ControlButton>
-      <ControlButton onClick={openPlayingView} type="button">
-        <MonitorSpeaker {...iconProperty} />
-      </ControlButton>
+      <ControlButton Icon={PlaySquareIcon} onClick={openPlayingView} tooltipText="Now Playing View" button />
+      <ControlButton Icon={Mic2Icon} onClick={openLyrics} tooltipText="Lyrics" button />
+      <ControlButton Icon={ListMusicIcon} onClick={openQueue} tooltipText="Queue" button />
+      <ControlButton Icon={MonitorSpeaker} onClick={openPlayingView} button />
       <VolumeController />
     </div>
   );
