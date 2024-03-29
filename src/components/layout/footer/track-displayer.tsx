@@ -11,11 +11,12 @@ const currentSong = {
   name: 'Song Name',
 };
 
+const iconProperty = getIconSize('l');
+
 export default function TrackDisplayer() {
   const [isLiked, setIsLiked] = useState<boolean>(false);
   const [effects, setEffects] = useState<boolean>(false);
 
-  const iconProperty = getIconSize('l');
   return (
     <div className="flex min-w-[30vw] flex-row items-center gap-2 lg:min-w-[13vw]">
       <img alt={`${currentSong.album}'s cover`} className="size-14 rounded-md" src={currentSong.albumCover} />

@@ -1,6 +1,9 @@
+/* eslint-disable jsx-a11y/media-has-caption */
 import OtherControls from './footer/other-controls';
 import PlayerController from './footer/player-controller';
 import TrackDisplayer from './footer/track-displayer';
+
+const source = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
 
 export default function Footer(): JSX.Element {
   return (
@@ -8,6 +11,7 @@ export default function Footer(): JSX.Element {
       <TrackDisplayer />
       <PlayerController />
       <OtherControls />
+      <audio id="audio-player" preload="auto" src={source} hidden />
     </div>
   );
 }

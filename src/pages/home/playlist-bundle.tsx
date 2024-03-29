@@ -19,8 +19,8 @@ const getGridStyle = (columnCount: number) => {
 export default function PlaylistBundle({ title, playlists, columnCount }: Properties) {
   return (
     <div>
-      <div className="flex w-full justify-between px-3.5">
-        <button type="button" className="py-2 text-2xl font-bold text-white no-underline hover:underline">
+      <div className="flex w-full items-center justify-between px-3.5 py-2">
+        <button type="button" className="text-2xl font-bold text-white no-underline hover:underline">
           {title}
         </button>
         <button

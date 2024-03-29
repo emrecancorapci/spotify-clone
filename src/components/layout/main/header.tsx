@@ -8,7 +8,7 @@ export default function Header(): JSX.Element {
   const username = 'Emre Can';
 
   return (
-    <div className="flex justify-between px-4">
+    <div className="flex justify-between px-4 py-2">
       <div className="flex flex-row items-center gap-2">
         <TooltipWrapper tooltipContent="Go back" side="bottom">
           <button
