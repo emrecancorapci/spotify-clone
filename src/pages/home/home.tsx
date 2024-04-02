@@ -1,8 +1,13 @@
-import { useOutletContext } from 'react-router-dom';
+import CardGroup from '../../components/ui/card-group';
+import PlaylistCard from './playlist-card';
 
-import PlaylistBundle from './playlist-bundle';
+interface Playlist {
+  title: string;
+  description: string;
+  image: string;
+}
 
-const Playlists = [
+const Playlists: Playlist[] = [
   {
     image: 'https://via.placeholder.com/256',
     title: 'A very long playlist name that going to be truncated',
@@ -55,15 +60,13 @@ const Playlists = [
   },
 ];
 
-export default function Home(): JSX.Element {
-  const width = useOutletContext<number>();
-  const cardSizePx = 200;
+const PlaylistGroup = CardGroup<Playlist>;
 
-  const columnsNumber = Math.floor(width / cardSizePx);
+export default function Home(): React.ReactNode {
   return (
     <div className="flex flex-col px-1">
-      <PlaylistBundle title="First Playlist Bundle" playlists={Playlists} columnCount={columnsNumber} />
-      <PlaylistBundle title="Second Playlist Bundle" playlists={Playlists} columnCount={columnsNumber} />
+      <PlaylistGroup title="First Playlist Bundle" items={Playlists} Component={PlaylistCard} />
+      <PlaylistGroup title="Second Playlist Bundle" items={Playlists} Component={PlaylistCard} />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import Footer from '@/components/layout/footer';
@@ -9,7 +9,7 @@ import Header from './components/layout/main/header';
 import { useAppControllerStore } from './features/appControllerStore';
 
 export default function Layout() {
-  const [mainWidth, setMainWidth] = useState(0);
+  const setMainWidth = useAppControllerStore((state) => state.setMainWidth);
   const mainReference = useRef<HTMLDivElement>(null);
   const sidebarReference = useRef<HTMLDivElement>(null);
 
@@ -24,7 +24,7 @@ export default function Layout() {
     });
 
     observer.observe(mainCurrent);
-  }, [mainReference.current?.clientWidth]);
+  }, [setMainWidth]);
 
   const { isDetailsOpen } = useAppControllerStore((state) => ({ isDetailsOpen: state.isDetailsOpen }));
 
@@ -50,7 +50,7 @@ export default function Layout() {
         >
           <div className="flex size-full flex-col bg-s-gray p-2" ref={mainReference}>
             <Header />
-            <Outlet context={mainWidth} />
+            <Outlet />
           </div>
         </ResizablePanel>
         <ResizableHandle className={`-right-1 ${isDetailsOpen ? '' : 'hidden'}`} />
