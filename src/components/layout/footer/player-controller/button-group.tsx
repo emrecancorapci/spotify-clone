@@ -5,7 +5,7 @@ import ControlButton from '@/components/ui/control-button';
 import ControlSwitch from '@/components/ui/control-switch';
 import { usePlayerControllerStore } from '@/features/playerControllerStore';
 
-export default function ButtonGroup(): JSX.Element {
+export default function ButtonGroup(): React.ReactNode {
   const { isRepeat, isShuffle, toggleRepeat, toggleShuffle } = usePlayerControllerStore((state) => ({
     isRepeat: state.isRepeat,
     isShuffle: state.isShuffle,

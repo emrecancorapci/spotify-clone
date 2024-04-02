@@ -6,7 +6,7 @@ import { useAppControllerStore } from '@/features/appControllerStore';
 
 import VolumeController from './volume-controller';
 
-export default function OtherControls(): JSX.Element {
+export default function OtherControls(): React.ReactNode {
   const toggleDetails = useAppControllerStore((state) => state.toggleDetails);
   const navigate = useNavigate();
 

@@ -11,7 +11,7 @@ interface Properties {
   tooltipContent?: React.ReactNode | string | undefined;
 }
 
-export default function TooltipWrapper({ children, side, sideOffset, tooltipContent }: Properties): JSX.Element {
+export default function TooltipWrapper({ children, side, sideOffset, tooltipContent }: Properties): React.ReactNode {
   const isContentEmpty = tooltipContent === undefined || tooltipContent === '' || tooltipContent === null;
   const defaultOffset = 8;
 

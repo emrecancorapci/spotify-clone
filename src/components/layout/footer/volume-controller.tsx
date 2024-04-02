@@ -4,7 +4,7 @@ import { useCallback, useMemo, useState } from 'react';
 import ControlButton from '@/components/ui/control-button';
 import { Slider } from '@/components/ui/slider';
 
-export default function VolumeController(): JSX.Element {
+export default function VolumeController(): React.ReactNode {
   const [volume, setVolume] = useState<number>(0.5);
   const [isMuted, setIsMuted] = useState<boolean>(false);
 

@@ -4,7 +4,7 @@ import { Slider } from '@/components/ui/slider';
 
 const defaultValue = [0];
 
-export default function ControllerSlider(): JSX.Element {
+export default function ControllerSlider(): React.ReactNode {
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState<number[]>([0]);
 

@@ -19,7 +19,7 @@ export default function LibraryCard({
   isCollapsed = true,
   isPinned,
   library: { image, name, songCount },
-}: Properties): JSX.Element {
+}: Properties): React.ReactNode {
   const tooltipContent = useMemo(
     () => <LibraryCardContent isPinned={isPinned} name={name} songCount={songCount} />,
     [isPinned, name, songCount],

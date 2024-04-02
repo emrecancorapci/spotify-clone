@@ -5,7 +5,7 @@ import TrackDisplayer from './footer/track-displayer';
 
 const source = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
 
-export default function Footer(): JSX.Element {
+export default function Footer(): React.ReactNode {
   return (
     <div className="flex flex-row items-center justify-between p-2">
       <TrackDisplayer />

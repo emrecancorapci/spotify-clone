@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import TooltipWrapper from '@/components/ui/tooltip-wrapper';
 
-export default function Header(): JSX.Element {
+export default function Header(): React.ReactNode {
   const navigate = useNavigate();
   const username = 'Emre Can';
 

@@ -6,7 +6,7 @@ import SidebarTop from './sidebar/sidebar-top';
 const Sidebar = forwardRef<HTMLDivElement, unknown>(function Sidebar(
   _properties,
   reference: Ref<HTMLDivElement>,
-): JSX.Element {
+): React.ReactNode {
   return (
     <div ref={reference} className="flex max-h-full w-full flex-col gap-2">
       <SidebarTop />

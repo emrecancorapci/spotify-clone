@@ -4,7 +4,7 @@ import ButtonGroup from './player-controller/button-group';
 import ControllerSlider from './player-controller/controller-slider';
 import TimeDisplay from './player-controller/time-display';
 
-export default function PlayerController(): JSX.Element {
+export default function PlayerController(): React.ReactNode {
   const [currentTime, setCurrentTime] = useState<number>(0);
   const audioPlayer = document.querySelector<HTMLAudioElement>('#audio-player');
 
