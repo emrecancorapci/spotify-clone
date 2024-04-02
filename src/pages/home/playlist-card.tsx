@@ -47,10 +47,9 @@ export default function PlaylistCard({ image, title, description }: Properties):
         width={256}
         alt="playlist"
       />
-      <PlayButton
-        style={getButtonPositionStyle(imageSize)}
-        className="absolute translate-y-2 opacity-0 shadow transition-all duration-200 ease-in group-hover:translate-y-0 group-hover:opacity-100"
-      />
+      <div className="absolute flex size-14 items-center justify-center" style={getButtonPositionStyle(imageSize)}>
+        <PlayButton className="translate-y-2 opacity-0 shadow transition-[opacity,transform] duration-200 ease-in group-hover:translate-y-0 group-hover:opacity-100" />
+      </div>
       <p className="max-w-full truncate pb-2 ps-2 pt-3 leading-none text-white">{title}</p>
       <p style={truncateStyle} className="ps-2 text-sm leading-tight text-s-gray-lighter">
         {description}
