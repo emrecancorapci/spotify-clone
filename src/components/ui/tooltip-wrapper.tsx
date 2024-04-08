@@ -11,26 +11,28 @@ interface Properties {
   tooltipContent?: React.ReactNode | string | undefined;
 }
 
-export default function TooltipWrapper({ children, side, sideOffset, tooltipContent }: Properties): React.ReactNode {
-  const isContentEmpty = tooltipContent === undefined || tooltipContent === '' || tooltipContent === null;
-  const defaultOffset = 8;
-
-  const memoizedTooltipContent = useMemo(() => {
-    if (isContentEmpty) return;
+export default function TooltipWrapper({
+  children,
+  side = 'top',
+  sideOffset = 8,
+  tooltipContent,
+}: Properties): React.ReactNode {
+  const memoizedContent = useMemo(() => {
+    if (tooltipContent == undefined) return;
     return tooltipContent;
-  }, [isContentEmpty, tooltipContent]);
+  }, [tooltipContent]);
 
-  return isContentEmpty ? (
+  return tooltipContent == undefined ? (
     <>{children}</>
   ) : (
     <Tooltip>
       <TooltipTrigger asChild>{children}</TooltipTrigger>
       <TooltipContent
         className="rounded border-0 bg-s-gray-darker p-1 px-2 text-white"
-        side={side ?? 'top'}
-        sideOffset={sideOffset ?? defaultOffset}
+        side={side}
+        sideOffset={sideOffset}
       >
-        {memoizedTooltipContent}
+        {memoizedContent}
       </TooltipContent>
     </Tooltip>
   );

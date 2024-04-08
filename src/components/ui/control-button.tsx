@@ -1,3 +1,4 @@
+import { cva } from 'class-variance-authority';
 import { LucideIcon } from 'lucide-react';
 import { memo } from 'react';
 
@@ -15,19 +16,20 @@ interface Properties {
   onClick: () => void;
 }
 
+const buttonVariants = cva('flex items-center justify-center rounded-full p-2', {
+  variants: {
+    button: {
+      true: 'text-s-gray-lighter hover:text-s-gray-lightest',
+    },
+  },
+});
+
 const iconProperty = getIconSize();
 
 function ControlButtonComponent({ className, button, size = 18, tooltipText, Icon, onClick }: Properties) {
   return (
     <TooltipWrapper tooltipContent={tooltipText}>
-      <button
-        className={cn(
-          'flex items-center justify-center rounded-full p-2',
-          button ? 'text-s-gray-lighter hover:text-gray-lightest' : '',
-          className,
-        )}
-        onClick={onClick}
-      >
+      <button className={cn(buttonVariants({ button, className }))} onClick={onClick}>
         <Icon {...iconProperty} size={size} />
       </button>
     </TooltipWrapper>

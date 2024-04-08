@@ -1,3 +1,4 @@
+import { cva } from 'class-variance-authority';
 import { LucideIcon } from 'lucide-react';
 import { memo } from 'react';
 
@@ -14,6 +15,15 @@ interface Properties {
   onClick: () => void;
 }
 
+const buttonVariants = cva('', {
+  variants: {
+    switchControl: {
+      true: 'text-s-green hover:text-s-green-light',
+      false: 'text-s-gray-lighter hover:text-s-gray-lightest',
+    },
+  },
+});
+
 function ControlSwitchComponent({
   className,
   switchControl = false,
@@ -24,10 +34,7 @@ function ControlSwitchComponent({
 }: Properties) {
   return (
     <ControlButton
-      className={cn(
-        switchControl ? 'text-s-green hover:text-s-green-light' : 'text-s-gray-lighter hover:text-s-gray-lightest',
-        className,
-      )}
+      className={cn(buttonVariants({ switchControl, className }))}
       Icon={Icon}
       onClick={onClick}
       size={size}

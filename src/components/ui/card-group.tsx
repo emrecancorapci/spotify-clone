@@ -17,7 +17,7 @@ const getGridStyle = (columnCount: number) => {
   };
 };
 
-export default function CardGroup<T>({ title, items, toMore, Component }: Properties<T>) {
+export default function CardGroup<T>({ title, items, toMore, Component }: Properties<T>): React.ReactNode {
   const width = useAppControllerStore((state) => state.mainWidth);
 
   const columnCount = Math.floor(width / cardSizePx);
