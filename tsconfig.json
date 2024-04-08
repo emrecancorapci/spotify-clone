@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "useDefineForClassFields": true,
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "target": "ESNext",
     "module": "ESNext",
+    "moduleDetection": "force",
+    "useDefineForClassFields": true,
     "skipLibCheck": true,
 
     /* Bundler mode */
@@ -18,8 +19,9 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]

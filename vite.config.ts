@@ -1,11 +1,11 @@
 import path from 'path';
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import eslintPlugin from '@nabla/vite-plugin-eslint';
-import tsConfigPaths from 'vite-tsconfig-paths'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import eslint from 'vite-plugin-eslint2';
+import tsConfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
-  plugins: [react(),  eslintPlugin(), tsConfigPaths()],
+  plugins: [react(), eslint(), tsConfigPaths()],
   build: {
     cssMinify: "lightningcss",
     minify: "terser",
