@@ -1,14 +1,18 @@
 import { BellIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
+import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import TooltipWrapper from '@/components/ui/tooltip-wrapper';
+import { useAppControllerStore } from '@/features/appControllerStore';
 
 export default function Header(): React.ReactNode {
   const navigate = useNavigate();
+  const width = useAppControllerStore((state) => state.mainWidth);
+  const memoizedWidth = useMemo(() => ({ width }), [width]);
   const username = 'Emre Can';
 
   return (
-    <div className="flex justify-between px-4 py-2">
+    <div style={memoizedWidth} className="absolute z-10 flex justify-between px-6 py-4">
       <div className="flex flex-row items-center gap-2">
         <TooltipWrapper tooltipContent="Go back" side="bottom">
           <button

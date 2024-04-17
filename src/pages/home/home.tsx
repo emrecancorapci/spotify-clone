@@ -64,8 +64,11 @@ const PlaylistGroup = CardGroup<Playlist>;
 
 export default function Home(): React.ReactNode {
   return (
-    <div className="flex flex-col px-1">
+    <div className="flex flex-col px-3">
       <PlaylistGroup title="First Playlist Bundle" items={Playlists} Component={PlaylistCard} />
+      <PlaylistGroup title="Second Playlist Bundle" items={Playlists} Component={PlaylistCard} />
+      <PlaylistGroup title="Second Playlist Bundle" items={Playlists} Component={PlaylistCard} />
+      <PlaylistGroup title="Second Playlist Bundle" items={Playlists} Component={PlaylistCard} />
       <PlaylistGroup title="Second Playlist Bundle" items={Playlists} Component={PlaylistCard} />
     </div>
   );

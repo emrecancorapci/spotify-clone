@@ -6,6 +6,7 @@ import Sidebar from '@/components/layout/sidebar';
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable';
 
 import Header from './components/layout/main/header';
+import { ScrollArea, ScrollBar } from './components/ui/scroll-area';
 import { useAppControllerStore } from './features/appControllerStore';
 
 export default function Layout() {
@@ -48,9 +49,12 @@ export default function Layout() {
           minSize={30}
           order={2}
         >
-          <div className="flex size-full flex-col bg-s-gray p-2" ref={mainReference}>
+          <div className="grid size-full flex-col overflow-hidden bg-s-gray" ref={mainReference}>
             <Header />
-            <Outlet />
+            <ScrollArea className="relative flex flex-1">
+              <Outlet />
+              <ScrollBar />
+            </ScrollArea>
           </div>
         </ResizablePanel>
         <ResizableHandle className={`-right-1 ${isDetailsOpen ? '' : 'hidden'}`} />
