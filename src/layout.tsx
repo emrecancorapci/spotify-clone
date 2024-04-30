@@ -51,7 +51,7 @@ export default function Layout() {
         >
           <div className="grid size-full flex-col overflow-hidden bg-s-gray" ref={mainReference}>
             <Header />
-            <ScrollArea className="relative flex flex-1">
+            <ScrollArea className="relative flex flex-1 px-2 pt-16">
               <Outlet />
               <ScrollBar />
             </ScrollArea>

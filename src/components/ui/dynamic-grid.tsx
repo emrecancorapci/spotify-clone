@@ -48,7 +48,7 @@ export default function DynamicGrid<T>({
           </button>
         </Link>
       </div>
-      {description && <p className="text-sm text-s-gray-lighter">{description}</p>}
+      {description && <p className="px-3.5 text-sm text-s-gray-lighter">{description}</p>}
       <div style={getGridStyle(columnCount)}>
         {items
           .slice(0, columnCount)
