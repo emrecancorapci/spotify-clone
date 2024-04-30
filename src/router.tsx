@@ -6,6 +6,7 @@ import Home from './pages/home/home';
 import Lyrics from './pages/lyrics';
 import Queue from './pages/queue';
 import Search from './pages/search';
+import UserPage from './pages/user/trknell/user-page';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,6 +17,9 @@ export const router = createBrowserRouter(
         <Route element={<Lyrics />} path="lyrics" />
         <Route element={<Queue />} path="queue" />
         <Route element={<Feed />} path="feed" />
+        <Route path="user">
+          <Route element={<UserPage />} path="trknell" />
+        </Route>
       </Route>
 
       <Route element={<div>Not Found</div>} path="*" />

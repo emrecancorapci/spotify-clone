@@ -1,6 +1,6 @@
 import { BellIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 import { useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import TooltipWrapper from '@/components/ui/tooltip-wrapper';
 import { useAppControllerStore } from '@/features/appControllerStore';
@@ -45,17 +45,17 @@ export default function Header(): React.ReactNode {
         </TooltipWrapper>
 
         <TooltipWrapper tooltipContent={username} side="bottom">
-          <div className="flex size-9 items-center justify-center">
+          <Link to="/user/trknell" className="flex size-9 items-center justify-center">
             <div className="flex size-8 cursor-pointer items-center justify-center rounded-full bg-black/50 hover:size-[33px] hover:bg-black/70">
               <img
-                src="https://via.placeholder.com/32"
+                src="https://i.scdn.co/image/ab6775700000ee858778531a91e035bbc08f0940"
                 width={24}
                 height={24}
                 alt="avatar"
                 className="size-6 rounded-full"
               />
             </div>
-          </div>
+          </Link>
         </TooltipWrapper>
       </div>
     </div>
