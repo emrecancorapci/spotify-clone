@@ -7,7 +7,7 @@ const source = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
 
 export default function Footer(): React.ReactNode {
   return (
-    <div className="flex flex-row items-center justify-between p-2">
+    <div className="flex flex-row items-center justify-between p-2 pb-3">
       <TrackDisplayer />
       <PlayerController />
       <OtherControls />

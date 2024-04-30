@@ -27,20 +27,20 @@
     "tsconfigRootDir": "./"
   },
   "plugins": [
-    "@typescript-eslint",
-    "import",
-    "jsx-a11y",
-    "react",
-    "prettier",
-    "promise", // NOT ready for flat config
-    "react-hooks", // NOT ready for flat config (and won't be for a while)
-    "react-hook-form", // NOT ready for flat config
+    "@typescript-eslint", // Ready for flat config
+    "import", // Not ready for flat config yet: https://github.com/import-js/eslint-plugin-import/issues/2948
+    "jsx-a11y", // Not ready for flat config yet: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/issues/978
+    "react", // Not ready for flat config yet: https://github.com/jsx-eslint/eslint-plugin-react/issues/3699
+    "prettier", // Ready for flat config
+    "promise", // NOT ready for flat config yet: https://github.com/eslint-community/eslint-plugin-promise/issues/449
+    "react-hooks", // NOT ready for flat config yet: https://github.com/facebook/react/issues/28313
+    "react-hook-form", // NOT ready for flat config (and won't be for a while)
     "react-refresh", // Ready for flat config
-    "react-perf", // NOT ready for flat config
-    "regexp",
-    "simple-import-sort",
-    "tailwindcss",
-    "unicorn"
+    "react-perf", // NOT ready for flat config (and won't be for a while)
+    "regexp", // Ready for flat config
+    "simple-import-sort", // Ready for flat config
+    "tailwindcss", // NOT ready for flat config yet: https://github.com/francoismassart/eslint-plugin-tailwindcss/issues/335
+    "unicorn" // Ready for flat config
   ],
   "extends": [
     "eslint:recommended",
