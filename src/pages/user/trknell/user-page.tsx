@@ -65,8 +65,9 @@ export default function UserPage() {
           title="Top artists this month"
           items={data.publicPlaylists}
           description="Only visible to you"
+          to='/'
         />
-        <PlaylistCardsContainer title="Public Playlists" items={data.publicPlaylists} name={data.user.name} />
+        <PlaylistCardsContainer title="Public Playlists" items={data.publicPlaylists} name={data.user.name} to='/' />
       </div>
     </div>
   );

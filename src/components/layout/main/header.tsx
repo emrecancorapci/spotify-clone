@@ -16,6 +16,7 @@ export default function Header(): React.ReactNode {
       <div className="flex flex-row items-center gap-2">
         <TooltipWrapper tooltipContent="Go back" side="bottom">
           <button
+            type="button"
             className="flex size-8 items-center justify-center rounded-full bg-black/70 text-white"
             onClick={() => navigate(-1)}
           >
@@ -24,6 +25,7 @@ export default function Header(): React.ReactNode {
         </TooltipWrapper>
         <TooltipWrapper tooltipContent="Go forward" side="bottom">
           <button
+            type="button"
             className="flex size-8 items-center justify-center rounded-full bg-black/70 text-white"
             onClick={() => navigate(1)}
           >
@@ -36,6 +38,7 @@ export default function Header(): React.ReactNode {
         <TooltipWrapper tooltipContent="What's New" side="bottom">
           <div className="flex size-9 items-center justify-center">
             <button
+              type="button"
               className="flex size-8 items-center justify-center rounded-full bg-black/50 text-s-gray-lighter hover:size-9 hover:text-white"
               onClick={() => navigate('/feed')}
             >

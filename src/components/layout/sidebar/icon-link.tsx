@@ -1,4 +1,4 @@
-import { LucideIcon } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 import TooltipWrapper from '@/components/ui/tooltip-wrapper';

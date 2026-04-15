@@ -8,7 +8,7 @@ const TimeDisplay = memo(({ totalSeconds }: { totalSeconds: number }) => {
   const formattedSeconds = Number.isNaN(totalSeconds) ? '00' : String(Math.round(seconds)).padStart(2, '0');
 
   return (
-    <p className="text-xs text-s-gray-lighter">
+    <p className="text-s-gray-lighter text-xs">
       {formattedMinutes}:{formattedSeconds}
     </p>
   );

@@ -1,4 +1,4 @@
-import { CSSProperties, useMemo } from 'react';
+import { type CSSProperties, useMemo } from 'react';
 
 export default function LibraryCardImage({ image }: { image?: string | undefined }) {
   const style = useMemo<CSSProperties>(() => {

@@ -1,4 +1,4 @@
-import { forwardRef, Ref } from 'react';
+import { forwardRef, type Ref } from 'react';
 
 import SidebarLibraryExplorer from './sidebar/sidebar-library-explorer';
 import SidebarTop from './sidebar/sidebar-top';

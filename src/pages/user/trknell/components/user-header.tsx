@@ -19,7 +19,7 @@ export default function UserHeader({ image, name, playlistCount, followers, foll
       <div className="flex flex-col justify-end gap-6 text-s-white">
         <div className="flex flex-col justify-end pt-2">
           <h1 className="ps-px text-sm">Profile</h1>
-          <h2 className="text-8xl font-bold">{name}</h2>
+          <h2 className="font-bold text-8xl">{name}</h2>
         </div>
         <div className="flex flex-row items-end">
           <span className="text-s-gray-lighter">{playlistCount} Public Playlists</span>

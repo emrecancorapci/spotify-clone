@@ -1,18 +1,20 @@
 import DynamicGrid from '@/components/ui/dynamic-grid';
 import PlaylistCard from '@/components/ui/item-card';
-import { Playlist } from '@/types';
+import type { Playlist } from '@/types';
 
 interface Properties {
   title: string;
   items: Playlist[];
   name: string;
+  to: string;
 }
 
-export default function PlaylistCardsContainer({ title, items, name }: Properties) {
+export default function PlaylistCardsContainer({ title, items, name, to }: Properties) {
   return (
     <DynamicGrid<Playlist>
       title={title}
       items={items}
+      to={to}
       Component={(properties) => (
         <PlaylistCard
           {...properties}

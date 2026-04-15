@@ -21,8 +21,8 @@ export default function TrackDisplayer() {
     <div className="flex min-w-[30vw] flex-row items-center gap-2 lg:min-w-[13vw]">
       <img alt={`${currentSong.album}'s cover`} className="size-14 rounded-md" src={currentSong.albumCover} />
       <div className="flex flex-col justify-center px-2">
-        <h3 className="text-sm font-normal text-s-white">{currentSong.name}</h3>
-        <h4 className="text-xs font-normal text-s-gray-lighter">{currentSong.artist}</h4>
+        <h3 className="font-normal text-s-white text-sm">{currentSong.name}</h3>
+        <h4 className="font-normal text-s-gray-lighter text-xs">{currentSong.artist}</h4>
       </div>
       <Tooltip>
         <TooltipTrigger>
