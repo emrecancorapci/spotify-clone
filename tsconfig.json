@@ -1,32 +1,13 @@
 {
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+
   "compilerOptions": {
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleDetection": "force",
-    "useDefineForClassFields": true,
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noUncheckedIndexedAccess": true,
-    "noFallthroughCasesInSwitch": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    },
-  },
-  "include": ["src", "vite.config.ts", "tsconfig.node.json", "tailwind.config.ts", "postcss.config.js"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+    }
+  }
 }

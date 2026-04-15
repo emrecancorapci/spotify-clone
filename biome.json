@@ -1,0 +1,105 @@
+{
+    "$schema": "https://biomejs.dev/schemas/2.4.12/schema.json",
+    "vcs": {
+        "enabled": true,
+        "clientKind": "git",
+        "useIgnoreFile": true
+    },
+    "files": {
+        "ignoreUnknown": false,
+        "includes": [
+            "src/**/*.{js,ts,jsx,tsx,json,md,mdx}"
+        ]
+    },
+    "formatter": {
+        "enabled": true,
+        "formatWithErrors": true,
+        "indentStyle": "space",
+        "indentWidth": 2,
+        "lineWidth": 100
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "recommended": true,
+            "a11y": {
+                "useMediaCaption": "warn",
+                "useValidAnchor": "warn"
+            },
+            "complexity": {
+                "noUselessTypeConstraint": "error",
+                "noUselessUndefined": "warn"
+            },
+            "correctness": {
+                "noUnusedFunctionParameters": "warn",
+                "noUnusedImports": "warn",
+                "noUnusedLabels": "warn",
+                "noUnusedVariables": "off",
+                "useExhaustiveDependencies": "warn",
+                "useHookAtTopLevel": "error",
+                "useUniqueElementIds": "off"
+            },
+            "nursery": {
+                "useSortedClasses": "warn"
+            },
+            "performance": {
+                "recommended": true
+            },
+            "style": {
+                "noCommonJs": "error",
+                "noNamespace": "error",
+                "useArrayLiterals": "error",
+                "useAsConstAssertion": "error",
+                "useFilenamingConvention": {
+                    "level": "error",
+                    "options": {
+                        "strictCase": true,
+                        "requireAscii": true,
+                        "filenameCases": [
+                            "kebab-case"
+                        ]
+                    }
+                }
+            },
+            "suspicious": {
+                "noExplicitAny": "error",
+                "noExtraNonNullAssertion": "error",
+                "noMisleadingInstantiator": "error",
+                "noNonNullAssertedOptionalChain": "error",
+                "noUnsafeDeclarationMerging": "error",
+                "noUnusedExpressions": "error",
+                "useAwait": "error",
+                "useNamespaceKeyword": "error"
+            }
+        }
+    },
+    "javascript": {
+        "formatter": {
+            "enabled": true
+        },
+        "linter": {
+            "enabled": true
+        },
+        "assist": {
+            "enabled": true
+        }
+    },
+    "json": {
+        "formatter": {
+            "enabled": true
+        },
+        "linter": {
+            "enabled": true
+        }
+    },
+    "assist": {
+        "enabled": true,
+        "actions": {
+            "recommended": true,
+            "source": {
+                "recommended": true,
+                "organizeImports": "on"
+            }
+        }
+    }
+}
