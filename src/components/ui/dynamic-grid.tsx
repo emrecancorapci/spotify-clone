@@ -13,7 +13,7 @@ interface Properties<T extends OrderableAndIndexable> {
   title: string;
   description?: string;
   items: T[];
-  to?: string;
+  to: string;
   Component: (properties: T) => React.ReactNode;
 }
 
@@ -34,21 +34,23 @@ export default function DynamicGrid<T>({
   return (
     <div>
       <div className={cn('flex w-full items-center justify-between px-3.5 py-2', className)}>
-        <Link to={to ?? '/'}>
-          <button type="button" className="text-2xl font-bold text-white no-underline hover:underline">
+        <Link to={to}>
+          <button type="button" className="font-bold text-2xl text-white no-underline hover:underline">
             {title}
           </button>
         </Link>
-        <Link to={to ?? '/'}>
+        <Link to={to}>
           <button
             type="button"
-            className="box-decoration-slice text-sm font-bold text-s-gray-lighter no-underline hover:underline"
+            className="box-decoration-slice font-bold text-s-gray-lighter text-sm no-underline hover:underline"
           >
             Show all
           </button>
         </Link>
       </div>
-      {description && <p className="px-3.5 text-sm text-s-gray-lighter">{description}</p>}
+
+      {description && <p className="px-3.5 text-s-gray-lighter text-sm">{description}</p>}
+
       <div style={getGridStyle(columnCount)}>
         {items
           .slice(0, columnCount)

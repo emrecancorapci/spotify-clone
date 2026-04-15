@@ -1,8 +1,8 @@
-import { useMemo } from 'react';
+import { useMemo } from "react";
 
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
-type TooltipSide = 'bottom' | 'left' | 'right' | 'top';
+type TooltipSide = "bottom" | "left" | "right" | "top";
 
 interface Properties {
   children: React.ReactNode;
@@ -13,18 +13,16 @@ interface Properties {
 
 export default function TooltipWrapper({
   children,
-  side = 'top',
+  side = "top",
   sideOffset = 8,
   tooltipContent,
 }: Properties): React.ReactNode {
   const memoizedContent = useMemo(() => {
-    if (tooltipContent == undefined) return;
+    if (!tooltipContent) return;
     return tooltipContent;
   }, [tooltipContent]);
 
-  return tooltipContent == undefined ? (
-    <>{children}</>
-  ) : (
+  return tooltipContent ? (
     <Tooltip>
       <TooltipTrigger asChild>{children}</TooltipTrigger>
       <TooltipContent
@@ -35,5 +33,7 @@ export default function TooltipWrapper({
         {memoizedContent}
       </TooltipContent>
     </Tooltip>
+  ) : (
+    children
   );
 }

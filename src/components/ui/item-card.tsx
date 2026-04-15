@@ -1,7 +1,7 @@
-import { cva } from 'class-variance-authority';
-import { useCallback, useState } from 'react';
+import { cva } from "class-variance-authority";
+import { useCallback, useState } from "react";
 
-import PlayButton from '@/components/ui/play-button';
+import PlayButton from "@/components/ui/play-button";
 
 interface Properties {
   image?: string;
@@ -12,11 +12,11 @@ interface Properties {
   showFollowers?: boolean;
 }
 
-const imageVariants = cva('aspect-square w-full object-cover shadow-lg shadow-black/50', {
+const imageVariants = cva("aspect-square w-full object-cover shadow-lg shadow-black/50", {
   variants: {
     isArtist: {
-      true: 'rounded-full',
-      false: 'rounded-lg',
+      true: "rounded-full",
+      false: "rounded-lg",
     },
   },
   defaultVariants: {
@@ -26,13 +26,18 @@ const imageVariants = cva('aspect-square w-full object-cover shadow-lg shadow-bl
 
 const truncateStyle: React.CSSProperties = {
   WebkitLineClamp: 2,
-  display: '-webkit-box',
-  WebkitBoxOrient: 'vertical',
-  overflow: 'hidden',
-  textOverflow: 'ellipsis',
+  display: "-webkit-box",
+  WebkitBoxOrient: "vertical",
+  overflow: "hidden",
+  textOverflow: "ellipsis",
 };
 
-export default function ItemCard({ image, title, description, isArtist }: Properties): React.ReactNode {
+export default function ItemCard({
+  image,
+  title,
+  description,
+  isArtist,
+}: Properties): React.ReactNode {
   const [imageSize, setImageSize] = useState<number>(0);
 
   const imageReference = useCallback(function sizeChangeHandler(node: HTMLImageElement) {
@@ -49,22 +54,21 @@ export default function ItemCard({ image, title, description, isArtist }: Proper
       <img
         ref={imageReference}
         className={imageVariants({ isArtist })}
-        src={image ?? 'https://via.placeholder.com/256'}
+        src={image ?? "https://via.placeholder.com/256"}
         height={256}
         width={256}
         alt="playlist"
       />
-      <div className="absolute flex size-14 items-center justify-center" style={getButtonPositionStyle(imageSize)}>
+      <div
+        className="absolute flex size-14 items-center justify-center"
+        style={getButtonPositionStyle(imageSize)}
+      >
         <PlayButton className="translate-y-2 opacity-0 shadow transition-[opacity,transform] duration-200 ease-in group-hover:translate-y-0 group-hover:opacity-100" />
       </div>
-      <p className="max-w-full truncate pb-2 ps-2 pt-3 leading-none text-white">{title}</p>
-      {description ? (
-        <p style={truncateStyle} className="ps-2 text-sm leading-tight text-s-gray-lighter">
-          {description}
-        </p>
-      ) : (
-        <div className="h-5"></div>
-      )}
+      <p className="max-w-full truncate ps-2 pt-3 pb-2 text-white leading-none">{title}</p>
+      <p style={truncateStyle} className="min-h-5 ps-2 text-s-gray-lighter text-sm leading-tight">
+        {description}
+      </p>
     </div>
   );
 }
