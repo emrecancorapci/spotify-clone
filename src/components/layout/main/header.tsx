@@ -1,6 +1,6 @@
 import { BellIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 import { useMemo } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router';
 
 import TooltipWrapper from '@/components/ui/tooltip-wrapper';
 import { useAppControllerStore } from '@/features/appControllerStore';

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useDefaultLayout } from "react-resizable-panels";
-import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router";
 
 import Footer from "@/components/layout/footer";
 import Sidebar from "@/components/layout/sidebar";

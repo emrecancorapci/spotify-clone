@@ -1,5 +1,5 @@
 import { ListMusicIcon, Mic2Icon, MonitorSpeaker, PlaySquareIcon } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 import ControlButton from '@/components/ui/control-button';
 import { useAppControllerStore } from '@/features/appControllerStore';

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 import { useAppControllerStore } from '@/features/appControllerStore';
 import { cn } from '@/lib/utils';
