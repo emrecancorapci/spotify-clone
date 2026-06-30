@@ -6,7 +6,7 @@ const playlist: Playlist[] = [
   {
     id: "1",
     order: 1,
-    image: "https://via.placeholder.com/256",
+    image: "https://picsum.photos/256",
     title: "A very long playlist name that going to be truncated",
     description: "Very very long description to see look of second row this text",
     followers: 100,
@@ -14,7 +14,7 @@ const playlist: Playlist[] = [
   {
     id: "2",
     order: 2,
-    image: "https://via.placeholder.com/256",
+    image: "https://picsum.photos/257",
     title: "Playlist 2",
     description: "Description 2",
     followers: 100,
@@ -22,7 +22,7 @@ const playlist: Playlist[] = [
   {
     id: "3",
     order: 3,
-    image: "https://via.placeholder.com/256",
+    image: "https://picsum.photos/258",
     title: "Playlist 3",
     description: "Description 3",
     followers: 100,
@@ -30,7 +30,7 @@ const playlist: Playlist[] = [
   {
     id: "4",
     order: 4,
-    image: "https://via.placeholder.com/256",
+    image: "https://picsum.photos/259",
     title: "Playlist 4",
     description: "Description 4",
     followers: 100,
@@ -38,7 +38,7 @@ const playlist: Playlist[] = [
   {
     id: "5",
     order: 5,
-    image: "https://via.placeholder.com/256",
+    image: "https://picsum.photos/260",
     title: "Playlist 5",
     description: "Description 5",
     followers: 100,
@@ -46,7 +46,7 @@ const playlist: Playlist[] = [
   {
     id: "6",
     order: 6,
-    image: "https://via.placeholder.com/256",
+    image: "https://picsum.photos/261",
     title: "Playlist 6",
     description: "Description 6",
     followers: 100,
@@ -54,7 +54,7 @@ const playlist: Playlist[] = [
   {
     id: "7",
     order: 7,
-    image: "https://via.placeholder.com/256",
+    image: "https://picsum.photos/262",
     title: "Playlist 7",
     description: "Description 7",
     followers: 100,
@@ -62,7 +62,7 @@ const playlist: Playlist[] = [
   {
     id: "8",
     order: 8,
-    image: "https://via.placeholder.com/256",
+    image: "https://picsum.photos/263",
     title: "Playlist 8",
     description: "Description 8",
     followers: 100,
@@ -70,7 +70,7 @@ const playlist: Playlist[] = [
   {
     id: "9",
     order: 9,
-    image: "https://via.placeholder.com/256",
+    image: "https://picsum.photos/264",
     title: "Playlist 9",
     description: "Description 9",
     followers: 100,
@@ -78,7 +78,7 @@ const playlist: Playlist[] = [
   {
     id: "10",
     order: 10,
-    image: "https://via.placeholder.com/256",
+    image: "https://picsum.photos/265",
     title: "Playlist 2",
     description: "Description 2",
     followers: 100,
